@@ -1,0 +1,139 @@
+.contact-page{
+    text-align: center;
+    
+    font-weight: bold;
+    font-size: 60px;
+    color: rgb(0, 155, 203);
+    margin-top: 65px;
+}
+
+.name{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 15vw;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+#first-name{
+    height: 60px;
+    border: 6px solid rgb(0, 155, 203);
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 25px;
+    min-width: 135px;
+}
+
+#last-name{
+    height: 60px;
+    border: 6px solid rgb(0, 155, 203);
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 25px;
+    min-width: 135px;
+}
+
+#email{
+    height: 60px;
+    border: 6px solid rgb(0, 155, 203);
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 25px;
+    min-width: 280px;
+    margin: 0 15vw;
+    width: 70vw;
+    display: block;
+    margin-top: 30px;
+}
+
+#message{
+    height: 60px;
+    border: 6px solid rgb(0, 155, 203);
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-size: 25px;
+    min-width: 280px;
+    margin: 0 15vw;
+    width: 70vw;
+    margin-top: 30px;
+    height: 350px;
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    resize: vertical;
+}
+
+#submit{
+    height: 60px;
+    border: 6px solid rgb(39, 123, 212);
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 25px;
+    margin-left: calc(85vw - 120px);
+    width: 120px;
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: rgba(0, 156, 203, 0.7);
+    transition: box-shadow background-color 0.2s;
+    cursor: pointer;
+    margin-bottom: 150px;
+}
+
+#submit:hover{
+    box-shadow: 6px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 156, 203, 1);
+}
+
+#submit:active{
+    background-color: rgba(0, 156, 203, 0.4);
+}
+
+
+@media (max-width: 900px){
+    .name{
+        width: 630px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 10px;
+    }
+    #email, #message{
+        width: 630px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+    #submit{
+        margin-left: calc(50vw + 195px);
+    }
+}
+
+@media (max-width: 650px){
+    .name{
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #email, #message{
+        width: calc(100vw - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #submit{
+        margin-left: calc(100vw - 130px);
+    }
+}
+
+@media (min-width: 1400px){
+    .name{
+        width: 980px;
+        margin-left: calc(50vw - 490px);
+    }
+    #email, #message{
+        width: 980px;
+        margin-left: calc(50vw - 490px);
+    }
+    #submit{
+        margin-left: calc(50vw + 370px);
+    }
+}
+

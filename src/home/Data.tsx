@@ -48,8 +48,13 @@ const bodyParagraphs: JSX.Element[] = (
 
 function createSkillList(list: string[], category: string): JSX.Element{
     return (
-        <ul className={'skill-list'}>
-            {list.map(item => <li className='skill-item' id={`${category}`}>{item}</li>)}
+        <ul className='skill-list' key={`${category}`}>
+            {
+            list.map((item, index) => 
+            <li className={`skill-item ${category}`} key={`${category + '_' + index}`}>
+                {item}
+            </li>)
+            }
         </ul>
     )
 }

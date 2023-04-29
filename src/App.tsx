@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 
 import './App.css'
@@ -7,7 +7,7 @@ import { Link, Routes, Route } from 'react-router-dom'
 import Home from './home/Home.tsx'
 import Projects from './projects/project.tsx'
 
-function App() {
+function App(): JSX.Element {
 
   return (
     <>

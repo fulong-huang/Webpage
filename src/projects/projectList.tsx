@@ -8,7 +8,8 @@ function createProjectItem(data: dataContainer, index: number): JSX.Element{
             <a href={data.link} target='_blank' className='overlay'>{data.overlay}</a>
             <img src={data.img} className='project-image' />
             <h1 className='project-title'>{data.title}</h1>
-            <p className='project-description'>{data.description}</p>
+            <p className='project-description'>{data.description[0]}</p>
+            <p className='project-description'>{data.description[1]}</p>
         </li>
     )
 }

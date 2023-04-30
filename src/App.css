@@ -2,9 +2,9 @@ nav{
   background: rgb(18, 196, 255);
   height: 80px;
   width: 100%;
-  top: 0;
   position: fixed;
   z-index: 100;
+  transition: all 0.5s;
 }
 
 nav ul{
@@ -84,4 +84,15 @@ nav ul li .nav-link{
 
 .space{
   height: 80px;
+}
+
+.visible{
+  top: 0;
+}
+.not-visible{
+  top: -80px;
+}
+.active{
+  color: white !important;
+  
 }

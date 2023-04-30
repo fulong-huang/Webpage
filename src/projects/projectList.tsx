@@ -5,6 +5,7 @@ import {projectData, dataContainer} from './data'
 function createProjectItem(data: dataContainer, index: number): JSX.Element{
     return(
         <li className='project-item'>
+            <a href={data.link} target='_blank' className='overlay'>{data.overlay}</a>
             <img src={data.img} className='project-image' />
             <h1 className='project-title'>{data.title}</h1>
             <p className='project-description'>{data.description}</p>

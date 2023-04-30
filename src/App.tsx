@@ -35,6 +35,7 @@ function App(): JSX.Element {
           </li>
         </ul>
       </nav>
+      <div className='space'></div>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/projects' element={<Projects />} />

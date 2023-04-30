@@ -4,18 +4,24 @@ export type dataContainer = {
     img         : string,
     title       : string,
     description : string,
+    overlay     : string,
+    link        : string,
 }
 
 export const projectData : dataContainer[] = [
-    { // SSA
-        img             : '/src/assets/IR_Diagram.png',
+    { // Website
+        img             : '/src/assets/1.png',
         title           : `
-            Static-Single Assignment Diagram
+            Personal Website
         `,
         description     : `
-            A school project built from ground up 
-            with no outside assistance for coding part.
+            My personal website you currently viewing,
+            This is my second website I built, first one being Tetris.
+            In addition from what I used for Tetris, 
+            I am also using Typescript and React.
         `,
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/Webpage',
     },
     { // Cube
         img             : '/src/assets/cube.png',
@@ -29,6 +35,8 @@ export const projectData : dataContainer[] = [
             when I tried to practice blindfold outside when physical cube
             isn't apporpriate.             
         `,
+        overlay         : 'Play it NOW',
+        link            : 'https://play.unity.com/mg/other/webgl-builds-327523',
     },
     { // Tetris
         img             : '/src/assets/Tetris.png',
@@ -36,12 +44,26 @@ export const projectData : dataContainer[] = [
             Tetris
         `,
         description     : `
-            Triditional Tetris, first project I used for javascript.
+            Triditional Tetris, first webpage I built.
             It helped me to gain familiarty of Javascript, HTML, and CSS.
         `,
+        overlay         : 'Play it NOW',
+        link            : 'https://fhuang-tetris.netlify.app/',
+    },
+    { // SSA
+        img             : '/src/assets/IR_Diagram.png',
+        title           : `
+            Static-Single Assignment Diagram
+        `,
+        description     : `
+            A school project built from ground up 
+            with no outside assistance for coding part.
+        `,
+        overlay         : 'Watch DEMO',
+        link            : 'https://youtu.be/nKmsC9gf2Bg',
     },
     { // Construction
-        img             : '/src/assets/IR_Diagram.png',
+        img             : '/src/assets/process.jpg',
         title           : `
             Run and Borrow (Constructing)
         `,
@@ -50,6 +72,8 @@ export const projectData : dataContainer[] = [
             only one processes run at a time,
             can timeout to run the next process in same priority. 
         `,
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/Processes',
     },
 ];
 

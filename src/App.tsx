@@ -4,9 +4,9 @@ import React, { useState } from 'react'
 import './App.css'
 import { Link, Routes, Route } from 'react-router-dom'
 
-import Home from './home/Home.tsx'
+import Home from './home/home.tsx'
 import Projects from './projects/project.tsx'
-import Contact from './contact/Contact.tsx'
+import Contact from './contact/contact.tsx'
 import Misc from './misc/Misc.tsx'
 
 function App(): JSX.Element {

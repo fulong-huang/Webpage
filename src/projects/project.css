@@ -1,0 +1,54 @@
+.project{
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    color: rgb(0, 155, 203);
+    margin-top: 65px;
+}
+
+.project-list{
+    display: grid;
+    grid-template-columns:  repeat(auto-fill, minmax(450px, 1fr));;
+    row-gap: 50px;
+    column-gap: 30px;
+    margin: 50px 30px;
+}
+
+.project-item{
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+
+    padding: 30px;
+
+    border-radius: 50px;
+}
+
+.project-image{
+    border-start-start-radius: 50px;
+    border-start-end-radius: 50px;
+    border-end-start-radius: 20px;
+    border-end-end-radius: 20px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.project-title{
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(0, 35, 71);
+}
+
+.project-description{
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media(min-width: 1050px){
+    .project-list{
+        /* column-gap: ; */
+    }
+    .project-item{
+    }
+}
+

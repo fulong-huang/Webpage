@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-import {ItemList, Body} from './Data.tsx'
+import {ItemList, Body} from './data.tsx'
 
 export default function Home(): JSX.Element{
     return (

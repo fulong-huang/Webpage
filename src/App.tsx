@@ -7,7 +7,7 @@ import './App.css'
 import Home from './home/home.tsx'
 import Projects from './projects/project.tsx'
 import Contact from './contact/contact.tsx'
-import Misc from './misc/Misc.tsx'
+import Misc from './misc/misc.tsx'
 
 function App(): JSX.Element {
 

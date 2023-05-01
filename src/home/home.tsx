@@ -1,5 +1,5 @@
 // import React from 'react'
-import './Home.css'
+import './home.css'
 import {ItemList, Body} from './data.tsx'
 
 export default function Home(): JSX.Element{

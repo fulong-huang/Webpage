@@ -8,7 +8,7 @@ type ContactFormData = {
 }
 
 const ContactForm: React.FC = () => {
-    // Hook contact form data and setter
+
     const [contactFormData, setContactFormData] = 
         useState<ContactFormData>({
             'first name': '',
@@ -16,11 +16,14 @@ const ContactForm: React.FC = () => {
             'email'     : '',
             'message'   : '',            
         });
+    
+    const [loading, setLoading] = useState(false);
 
-    // 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        if(loading) return;
         try{
+            setLoading(true);
             const response = await fetch(
                 'https://formsubmit.co/ajax/fulonghuang05@gmail.com', 
                 {
@@ -32,7 +35,6 @@ const ContactForm: React.FC = () => {
                 body: JSON.stringify(contactFormData),
                 }
             );
-            // response.json();
             const data = await response.json();
             console.log(data);
             alert("Message Sent, Thank you!!!")
@@ -46,6 +48,7 @@ You can also send your message directly to:
 fulonghuang05@gmail.com
 `);
         }
+        setLoading(false);
     }
 
     const handleInputChange = (
@@ -68,12 +71,15 @@ fulonghuang05@gmail.com
             <input type='text' name='last name' id='last-name' placeholder='last (optional)' onChange={handleInputChange}/>
         </div>
         <input type='email' name='email' id='email' placeholder='email (optional)' onChange={handleInputChange}/>
-        <textarea name='message' id='message' placeholder='message (You can just say "Hi")' required  onChange={handleInputChange}/>
+        <textarea name='message' id='message' placeholder='message* (You can just say "Hi")' required  onChange={handleInputChange}/>
 
         <input type='hidden' name='_next' value='./'/>
-        {/* <input type="hidden" name="_captcha" value="false" /> */}
 
-        <button type='submit' id='submit'> Send </button>
+        <button type='submit' id='submit' className={`${loading? 'loading':''}`}> 
+            <div className={`loader ${loading? 'loading':''}`}></div>
+            Send 
+        </button> 
+    
     </form>
     )
 }

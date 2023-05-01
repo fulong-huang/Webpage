@@ -5,7 +5,11 @@ export default function Nav(): JSX.Element{
         
     const [visible, setVisible] = useState(true);
 
+    const [activePage, setActivePage] = useState('/');
+
     useEffect(() => {
+        setActivePage(window.location.pathname);
+
         let prevPosition = window.scrollY;
         
         const handleScroll = () => {
@@ -18,9 +22,10 @@ export default function Nav(): JSX.Element{
 
         window.addEventListener('scroll', handleScroll);
 
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
     })
-
-    const [activePage, setActivePage] = useState('home');
 
     return (
         <>
@@ -28,25 +33,25 @@ export default function Nav(): JSX.Element{
         {/* <div className='nav-icon-container'>  */}
             <input type='checkbox' id='nav-toggle'></input>
             <label htmlFor='nav-toggle' className='check-btn'>
-            <img src='/src/assets/navigation-bar.png' className='nav-icon'></img>
+            <img src='/navigation-bar.png' className='nav-icon'></img>
             </label>
 
         <ul>
             <li>
-            <Link to='/' className={`nav-link ${activePage === 'home'? 'active' : ''}`} 
-                            onClick={()=>{setActivePage('home')}}> Home </Link>
+            <Link to='/' className={`nav-link ${activePage === '/'? 'active' : ''}`} 
+                            onClick={()=>{setActivePage('/')}}> Home </Link>
             </li>
             <li>
-            <Link to='/projects' className={`nav-link ${activePage === 'project'? 'active' : ''}`}
-                            onClick={()=>{setActivePage('project')}}> Projects </Link>
+            <Link to='/projects' className={`nav-link ${activePage === '/projects'? 'active' : ''}`}
+                            onClick={()=>{setActivePage('/projects')}}> Projects </Link>
             </li>
             <li>
-            <Link to='/contact' className={`nav-link ${activePage === 'contact'? 'active' : ''}`}
-                            onClick={()=>{setActivePage('contact')}}> Contact </Link>
+            <Link to='/contact' className={`nav-link ${activePage === '/contact'? 'active' : ''}`}
+                            onClick={()=>{setActivePage('/contact')}}> Contact </Link>
             </li>
             <li>
-            <Link to='/misc' className={`nav-link ${activePage === 'misc'? 'active' : ''}`}
-                            onClick={()=>{setActivePage('misc')}}> MISC </Link>
+            <Link to='/misc' className={`nav-link ${activePage === '/misc'? 'active' : ''}`}
+                            onClick={()=>{setActivePage('/misc')}}> MISC </Link>
             </li>
         </ul>
         </nav>

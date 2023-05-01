@@ -10,7 +10,7 @@ export type dataContainer = {
 
 export const projectData : dataContainer[] = [
     { // Website
-        img             : '/src/assets/1.png',
+        img             : '/webpage.png',
         title           : `
             Personal Website
         `,
@@ -28,7 +28,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Webpage',
     },
     { // Cube
-        img             : '/src/assets/cube.png',
+        img             : '/cube.png',
         title           : `
             Rubik's Cube
         `,
@@ -45,7 +45,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://play.unity.com/mg/other/webgl-builds-327523',
     },
     { // Tetris
-        img             : '/src/assets/Tetris.png',
+        img             : '/Tetris.png',
         title           : `
             Tetris
         `,
@@ -63,7 +63,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://fhuang-tetris.netlify.app/',
     },
     { // SSA
-        img             : '/src/assets/IR_Diagram.png',
+        img             : '/IR_Diagram.png',
         title           : `
             Static-Single Assignment IR Diagram
         `,
@@ -80,7 +80,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://youtu.be/nKmsC9gf2Bg',
     },
     { // Construction
-        img             : '/src/assets/process.jpg',
+        img             : '/process.jpg',
         title           : `
             Run and Borrow (Constructing)
         `,

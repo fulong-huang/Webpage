@@ -22,7 +22,7 @@ const ContactForm: React.FC = () => {
         event.preventDefault();
         try{
             const response = await fetch(
-                'https://formsubmit.co/ajax/cosapagu@mailgolem.com', 
+                'https://formsubmit.co/ajax/fulonghuang05@gmail.com', 
                 {
                 method: 'POST', 
                 headers: {

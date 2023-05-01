@@ -1,10 +1,10 @@
-import React from 'react'
+// import React from 'react'
 import {projectData, dataContainer} from './data'
 
 
 function createProjectItem(data: dataContainer, index: number): JSX.Element{
     return(
-        <li className='project-item'>
+        <li className='project-item' key={`projectItem_${index}`}>
             <a href={data.link} target='_blank' className='overlay'>{data.overlay}</a>
             <img src={data.img} className='project-image' />
             <h1 className='project-title'>{data.title}</h1>

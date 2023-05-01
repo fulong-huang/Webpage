@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 const item1List: string[] = [
     'C', 'C#', 'C++', 'Python', 'Java', 'MySQL', 'Assembly',
@@ -42,7 +42,7 @@ export function Body(): JSX.Element[]{
 }
 
 const bodyParagraphs: JSX.Element[] = (
-    body.map(item => <p className='about-me-content'>&emsp;&emsp;{item}</p>)
+    body.map((item, index) => <p className='about-me-content' key={`body_${index}`}>&emsp;&emsp;{item}</p>)
 )
 
 

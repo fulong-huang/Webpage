@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import './project.css'
 import ProjectList from './projectList'
 

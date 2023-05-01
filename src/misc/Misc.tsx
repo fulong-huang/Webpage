@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import './Misc.css'
 
 export default function Misc(): JSX.Element{

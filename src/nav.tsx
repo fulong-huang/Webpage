@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Nav(): JSX.Element{
@@ -11,8 +11,6 @@ export default function Nav(): JSX.Element{
         const handleScroll = () => {
             let currPosition = window.scrollY;
             if(Math.abs(currPosition - prevPosition) > 80){
-                console.log(currPosition)
-                console.log(prevPosition)
                 setVisible(currPosition < prevPosition);
                 prevPosition = currPosition;
             }

@@ -47,7 +47,6 @@
 }
 
 #message{
-    height: 60px;
     border: 6px solid rgb(0, 155, 203);
     border-radius: 15px;
     padding: 10px 15px;
@@ -108,18 +107,39 @@
 }
 
 @media (max-width: 650px){
+    .contact-page{
+        font-size: 30px;
+        margin-top: 30px;
+    }
     .name{
         width: auto;
         margin-left: 10px;
         margin-right: 10px;
+    }
+    #first-name, #last-name,
+    #email, #message{
+        border-radius: 10px;
+        font-size: 16px;
+        height: 45px;        
+        padding: 0 10px;
+        border-width: 3px;
     }
     #email, #message{
         width: calc(100vw - 20px);
         margin-left: 10px;
         margin-right: 10px;
     }
-    #submit{
-        margin-left: calc(100vw - 130px);
+    #message{
+        height: 200px
+    }
+    #submit, .loader{
+        margin-left: calc(100vw - 110px);
+        margin-top: 8px;
+        font-size: 20px;
+        height: 50px;
+        width: 100px;
+        padding: auto;
+        border-width: 5px;
     }
 }
 

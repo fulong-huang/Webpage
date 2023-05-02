@@ -22,3 +22,13 @@
     color: rgb(0, 155, 203);
     margin-bottom: 20px;
 }
+
+@media (max-width: 600px){
+    .Misc-container{
+        border-radius: 30px;
+        border-width: 5px;
+    }
+    .Misc{
+        font-size: 20px;
+    }
+}

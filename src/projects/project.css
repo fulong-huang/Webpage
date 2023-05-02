@@ -88,3 +88,75 @@
     background-color: rgba(50, 0, 125, 0.35);
     transition: background-color 0.15s;
 }
+
+@media (max-width: 500px){
+    .project{
+        margin-top: 30px;
+        font-size: 30px;
+    }
+    .project-list{
+        grid-template-columns: 
+            repeat(auto-fill, 
+                minmax(200px, 1fr));
+        row-gap: 15px;
+        column-gap: 15px;
+        margin: 20px 12px;
+    }
+    .project-item{
+        padding: 15px;
+        border-radius: 30px;
+    }
+    .project-image{
+        border-start-start-radius: 30px;
+        border-start-end-radius: 30px;
+        border-end-start-radius: 12px;
+        border-end-end-radius: 12px;
+        height: 150px;
+    }
+    .overlay{
+        border-start-start-radius: 30px;
+        border-start-end-radius: 30px;
+        border-end-start-radius: 12px;
+        border-end-end-radius: 12px;
+        height: 150px;
+    }
+    .project-title{
+        font-size: 20px;
+    }
+    .project-description{
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    .project-item:hover{
+        box-shadow: initial;
+        width: initial;
+        height: initial;
+        margin: initial;
+        box-shadow: none;
+    }
+    .project-image:hover{
+        width: initial;
+        margin: initial;
+        box-shadow: none;
+    }
+    .overlay:hover + .project-image{
+        height: initial;
+        width: initial;
+        margin: initial;
+        box-shadow: none;
+        height: 150px;
+    }
+    .overlay:hover{
+        height: 150px;
+        width: calc(100% - 30px);
+
+        margin: initial;
+        opacity: 0;
+    }
+    .overlay{
+        width: calc(100% - 30px);
+        background-color: red;
+        opacity: 0;
+        font-size: 0;
+    }
+}

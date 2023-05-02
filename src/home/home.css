@@ -135,14 +135,54 @@
 }
 
 @media (max-width: 500px){
+    /* Header */
     #my-name{
-        font-size: 50px;
-    }
-    #my-title{
         font-size: 30px;
     }
+    #my-title{
+        font-size: 20px;
+        margin-top: 30px;
+    }
     #my-education{
+        font-size: 10px;
+        margin-top: 8px;
+    }
+
+    /* Skill */
+    .skill-container{
+        margin: 0 12px;
+        margin-top: 20px;
+        border-width: 5px;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    #my-skill{
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+    .skill-list{
+        padding-top: 12px;
+        row-gap: 5px;
+        column-gap: 5px;
+    }
+    .skill-item{
         font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    /* About me */
+    .about-me-container{
+        margin: 20px 15px;
+    }
+    #about-me{
+        /* margin: 20px 12px; */
+        margin-top: 0px;
+        padding-bottom: 0px;
+        font-size: 25px;
+    }
+    .about-me-content{
+        font-size: 12px;
+        margin-top: 12px;
     }
 }
 

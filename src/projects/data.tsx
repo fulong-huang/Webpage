@@ -80,7 +80,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://youtu.be/nKmsC9gf2Bg',
     },
     { // Construction
-        img             : '/process.jpg',
+        img             : '/process.png',
         title           : `
             Run and Borrow (Constructing)
         `,

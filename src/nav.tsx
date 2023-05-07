@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Nav(): JSX.Element{
+    const [isChecked, setIsChecked] = useState(false);
         
     const [visible, setVisible] = useState(true);
 
@@ -31,7 +32,7 @@ export default function Nav(): JSX.Element{
         <>
         <nav className={`visible ${visible? 'visible': 'not-visible'}`}>
         {/* <div className='nav-icon-container'>  */}
-            <input type='checkbox' id='nav-toggle'></input>
+            <input type='checkbox' id='nav-toggle' checked={isChecked} onChange={()=>setIsChecked(!isChecked)}></input>
             <label htmlFor='nav-toggle' className='check-btn'>
             <img src='/navigation-bar.png' className='nav-icon'></img>
             </label>
@@ -39,19 +40,19 @@ export default function Nav(): JSX.Element{
         <ul>
             <li>
             <Link to='/' className={`nav-link ${activePage === '/'? 'active' : ''}`} 
-                            onClick={()=>{setActivePage('/')}}> Home </Link>
+                            onClick={()=>{setIsChecked(false); setVisible(true); setActivePage('/')}}> Home </Link>
             </li>
             <li>
             <Link to='/projects' className={`nav-link ${activePage === '/projects'? 'active' : ''}`}
-                            onClick={()=>{setActivePage('/projects')}}> Projects </Link>
+                            onClick={()=>{setIsChecked(false); setVisible(true); setActivePage('/projects')}}> Projects </Link>
             </li>
             <li>
             <Link to='/contact' className={`nav-link ${activePage === '/contact'? 'active' : ''}`}
-                            onClick={()=>{setActivePage('/contact')}}> Contact </Link>
+                            onClick={()=>{setIsChecked(false); setVisible(true); setActivePage('/contact')}}> Contact </Link>
             </li>
             <li>
             <Link to='/misc' className={`nav-link ${activePage === '/misc'? 'active' : ''}`}
-                            onClick={()=>{setActivePage('/misc')}}> MISC </Link>
+                            onClick={()=>{setIsChecked(false); setVisible(true); setActivePage('/misc')}}> MISC </Link>
             </li>
         </ul>
         </nav>

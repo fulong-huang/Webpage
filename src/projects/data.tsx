@@ -82,7 +82,7 @@ export const projectData : dataContainer[] = [
     { // Construction
         img             : '/process.png',
         title           : `
-            Run and Borrow (Constructing)
+            Run and Borrow (C++ version)
         `,
         description     : [
             `
@@ -97,6 +97,24 @@ export const projectData : dataContainer[] = [
         overlay         : 'Visit Github Page',
         link            : 'https://github.com/fulong-huang/Processes',
     },
+    { // Construction
+        img             : '/process.png',
+        title           : `
+            Run and Borrow (Constructing)
+        `,
+        description     : [
+            `
+                TypeScript, React
+            `,
+            `
+                Similar to previous project, 
+                but using TypeScript and React for web page version
+                with visual representation.
+            `,
+        ],
+        overlay         : 'View Project (Constructing)',
+        link            : 'process'
+    }
 ];
 
 

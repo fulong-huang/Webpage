@@ -2,7 +2,7 @@
 import './project.css'
 import ProjectList from './projectList'
 
-export default function Projects(){
+export default function Projects() : JSX.Element{
     return (
         <div>
             <p className='project'>

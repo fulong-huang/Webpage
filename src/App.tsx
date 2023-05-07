@@ -8,6 +8,7 @@ import Home from './home/home.tsx'
 import Projects from './projects/project.tsx'
 import Contact from './contact/contact.tsx'
 import Misc from './misc/misc.tsx'
+import Process from './projects/process/processNresource.tsx'
 
 function App(): JSX.Element {
 
@@ -16,7 +17,10 @@ function App(): JSX.Element {
       <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/projects' element={<Projects />} />
+        <Route path='/projects'>
+          <Route index element={<Projects />} />
+          <Route path='process' element={<Process />} />
+        </Route>
         <Route path='/contact' element={<Contact />} />
         <Route path='/misc' element={<Misc />} />
       </Routes>

@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState} from "react";
 import ResourceItem from "./type"
 
 const ResourceInput = ({resources, setResources} : 
@@ -9,8 +9,6 @@ const ResourceInput = ({resources, setResources} :
 
     const [size, setSize] = useState<number>(0);
     
-    const [inputData, setInputData] = useState<ResourceItem[]>([])
-
     const changeInputSize = () =>{
         if(size <= resources.length){
             setResources(resources.slice(0, size))

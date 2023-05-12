@@ -27,7 +27,7 @@ const ResourceManager = ({inputData, resources, setResources}:
             {
             inputData.map((_, index) => (
                 <div key={'resource_' + index}>
-                    <p>#{index}</p>
+                    #{index}: 
                     <input 
                         key={'resource_' + index} 
                         type='number' 
@@ -43,7 +43,7 @@ const ResourceManager = ({inputData, resources, setResources}:
 }
 
 
-const ResourceInput = ({resources, setResources} : 
+export const ResourceInput = ({resources, setResources} : 
     {
         resources: ResourceItem[],
         setResources: (newValue: ResourceItem[]) => void,
@@ -78,7 +78,7 @@ const ResourceInput = ({resources, setResources} :
     
     return (
         <>
-            <div>Set Size: &nbsp;
+            <div>Resources Size: &nbsp;
                 <input type='number' 
                     onChange={(e) => {setSize(parseInt(e.target.value))}}>
 
@@ -90,7 +90,7 @@ const ResourceInput = ({resources, setResources} :
     )
 }
 
-const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.Element => {
+export const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.Element => {
     return (
         <>
         {
@@ -103,14 +103,22 @@ const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.Element 
                         <p className='table-head'>Avaliable</p>
                         <p className='table-head'>Waitlist</p>
                     </li>
-                    
+                    <li className='resource-row' key={'resource_-1'}>
+                    <p className='content-center'>-1</p>
+                    <p className='content-center'>-1</p>
+                    <p className='content-center'>-1</p>
+                    <p className='content-center'>place holder</p>
+                </li>                   
                    {
                     resources.map((item, index) => (
                         <li className='resource-row' key={'resource_'+index}>
                             <p className='content-center'>{item.resourceNum}</p>
                             <p className='content-center'>{item.total}</p>
                             <p className='content-center'>{item.avaliable}</p>
-                            <p className='content-center'>{item.waitlist.join(', ')}</p>
+                            <p className='content-center'>{
+                                item.waitlist.length != 0 && item.waitlist.join(', ')
+                                || 'null'
+                            }</p>
                         </li>
                     ))
                     }
@@ -122,15 +130,3 @@ const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.Element 
     )
 }
 
-
-// this function should later move to upper layer
-//  import input and display and use it there instead
-export default function Resource(): JSX.Element{
-    const [resources, setResources] = useState<ResourceItem[]>([]);
-    return (
-        <>
-            {<ResourceDisplay resources={resources} />}
-            {<ResourceInput resources={resources} setResources={setResources}/>}
-        </>
-    )
-}

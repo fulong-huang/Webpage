@@ -1,5 +1,5 @@
 
-export interface ResourceItem{
+export default interface ResourceItem{
     resourceNum: number,
     total: number,
     // setTotal: {(newTotal: number): void}

@@ -1,6 +1,48 @@
 import { useState} from "react";
 import {ResourceItem } from "./type"
 
+// Needs to prevent it from reloading.
+// Plan A: make it into it's own function
+// Plan B: create a button to trigger instead of setting them individually.
+const ResourceManager = ({inputData, resources, setResources}: 
+    {inputData: number[],
+    resources: ResourceItem[],
+    setResources: (newValue: ResourceItem[]) => void}
+): JSX.Element => {
+
+    const inputOnChange = (
+        idx: number, newTotal: number,
+        ) => {
+
+        const newReosurces = [... resources]
+        newReosurces[idx].avaliable = newTotal
+        newReosurces[idx].total = newTotal
+        setResources(newReosurces)
+    }
+
+    return (
+        <>
+        <div>
+            <p>Start</p>
+            {
+            inputData.map((_, index) => (
+                <div key={'resource_' + index}>
+                    <p>#{index}</p>
+                    <input 
+                        key={'resource_' + index} 
+                        type='number' 
+                        placeholder="3"
+                        onChange={(e) => inputOnChange(index, parseInt(e.target.value))} />
+                </div>
+            ))
+            }
+            <p>End</p>
+        </div>
+        </>
+    )
+}
+
+
 const ResourceInput = ({resources, setResources} : 
     {
         resources: ResourceItem[],
@@ -34,41 +76,6 @@ const ResourceInput = ({resources, setResources} :
         setResources(newResources);
     }
     
-    const inputOnChange = (
-        idx: number, newTotal: number,
-        ) => {
-
-        const newReosurces = [... resources]
-        newReosurces[idx].avaliable = newTotal
-        newReosurces[idx].total = newTotal
-        setResources(newReosurces)
-    }
-
-    // Needs to prevent it from reloading.
-    // Plan A: make it into it's own function
-    // Plan B: create a button to trigger instead of setting them individually.
-    const ShowInputField = (): JSX.Element => {
-        return (
-            <>
-            <div>
-                <p>Start</p>
-                {
-                inputData.map((_, index) => (
-                    <div key={'resource_' + index}>
-                        <p>#{index}</p>
-                        <input 
-                            key={'resource_' + index} 
-                            type='number' 
-                            onChange={(e) => inputOnChange(index, parseInt(e.target.value))} />
-                    </div>
-                ))
-                }
-                <p>End</p>
-            </div>
-            </>
-        )
-    }
-
     return (
         <>
             <div>Set Size: &nbsp;
@@ -78,9 +85,7 @@ const ResourceInput = ({resources, setResources} :
                 </input>
                 <button onClick={changeInputSize}>Submit</button>
             </div>
-            <div>
-                <ShowInputField />
-            </div>
+            <ResourceManager inputData={inputData} resources={resources} setResources={setResources} />
         </>
     )
 }

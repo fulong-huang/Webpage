@@ -1,33 +1,54 @@
-import { ChangeEvent, useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import ResourceItem from "./type"
 
-export default function Resource(): JSX.Element{
-    const [size, setSize] = useState<number>(0);
-    const [resources, setResources] = useState<ResourceItem[]>([]);
+const ResourceInput = ({resources, setResources} : 
+    {
+        resources: ResourceItem[],
+        setResources: (newValue: ResourceItem[]) => void,
+    }): JSX.Element => {
 
-    useEffect(()=>{
-        const newResources : ResourceItem[] = [];
-        for(let i = 0; i < size; i++){
-            newResources.push({
-                resourceNum: i,
+    const [size, setSize] = useState<number>(0);
+    
+    const [inputData, setInputData] = useState<ResourceItem[]>([])
+
+    const changeInputSize = () =>{
+        if(size <= resources.length){
+            setResources(resources.slice(0, size))
+            return;
+        }
+        const newResources = [... resources]
+        for(let i = resources.length; i < size; i++){
+            const item: ResourceItem = {
+                resourceNum: i + 1,
                 total: 3,
-                // setTotal: setCurrTotal,
                 avaliable: 2,
-                // setAvaliable: setCurrAvaliable,
-                waitlist: [i, i * 3, i * 5],
-                // setWaitlist: setCurrWaitlist,
-            })
+                waitlist: [1, 2, 3 * i],
+            }
+            newResources.push(item)
         }
         setResources(newResources);
-    }, [size])
-
-    const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setSize(parseInt(event.target.value))
     }
-
     return (
         <>
-		<div className='table'> 
+            <p>Set Size: &nbsp;
+                <input type='number' 
+                    onChange={(e) => {setSize(parseInt(e.target.value))}}>
+
+                </input>
+                <button onClick={changeInputSize}>Submit</button>
+            </p>
+            <p>
+                more Item
+            </p>
+        </>
+    )
+}
+
+const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.Element => {
+    return (
+        <>
+        {
+            <div className='table'> 
             <h1 className='table-head'>Resoruces</h1>
             <ul>
                 <li className='resource-row'>
@@ -36,24 +57,34 @@ export default function Resource(): JSX.Element{
                     <p className='table-head'>Avaliable</p>
                     <p className='table-head'>Waitlist</p>
                 </li>
-                {
-                    // TODO: 
-                    //  Add a button for value change
-                    resources.map((item, index) => (
-                        <li className='resource-row' key={'resource_'+index}>
-                            <p className='content-center'>{item.resourceNum}</p>
-                            <p className='content-center'>{item.total}</p>
-                            <p className='content-center'>{item.avaliable}</p>
-                            <p className='content-center'>{item.waitlist.join(', ')}</p>
-                        </li>
-                    ))
-                }
-                <p>Set Size: &nbsp;
-                    <input type='number' onChange={onChange}></input>
-                </p>
                 
+               {
+                resources.map((item, index) => (
+                    <li className='resource-row' key={'resource_'+index}>
+                        <p className='content-center'>{item.resourceNum}</p>
+                        <p className='content-center'>{item.total}</p>
+                        <p className='content-center'>{item.avaliable}</p>
+                        <p className='content-center'>{item.waitlist.join(', ')}</p>
+                    </li>
+                ))
+                }
             </ul>
         </div>
+
+        }
+        </>
+    )
+}
+
+
+// this function should later move to upper layer
+//  import input and display and use it there instead
+export default function Resource(): JSX.Element{
+    const [resources, setResources] = useState<ResourceItem[]>([]);
+    return (
+        <>
+            {<ResourceDisplay resources={resources} />}
+            {<ResourceInput resources={resources} setResources={setResources}/>}
         </>
     )
 }

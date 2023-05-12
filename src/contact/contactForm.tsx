@@ -14,7 +14,7 @@ const ContactForm: React.FC = () => {
             'first name': '',
             'last name' : '',
             'email'     : '',
-            'message'   : '',            
+            'message'   : '',
         });
     
     const [loading, setLoading] = useState(false);

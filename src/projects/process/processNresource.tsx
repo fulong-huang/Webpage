@@ -1,8 +1,6 @@
 import ReadyQueue from './src/readyQueue/readyQueue.tsx'
 import Processes from './src/process/processes.tsx'
 import Resource from './src/resource/resource.tsx'
-import Inputs from './src/input/input.tsx'
-import './src/input/input.css'
 import './processNresource.css'
 
 export default function ProcessNResource(): JSX.Element{
@@ -14,7 +12,6 @@ export default function ProcessNResource(): JSX.Element{
             {<ReadyQueue />}
             {<Processes />}
             {<Resource />}
-            {<Inputs />}
         </div>
        </>
     );

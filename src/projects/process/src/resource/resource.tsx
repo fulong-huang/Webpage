@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import { useState} from "react";
 import {ResourceItem } from "./type"
 
 const ResourceInput = ({resources, setResources} : 
@@ -53,10 +53,13 @@ const ResourceInput = ({resources, setResources} :
             <div>
                 <p>Start</p>
                 {
-                inputData.map((item, index) => (
+                inputData.map((_, index) => (
                     <div key={'resource_' + index}>
                         <p>#{index}</p>
-                        <input key={'resource_' + index} type='number' onChange={(e) => inputOnChange(index, parseInt(e.target.value))} />
+                        <input 
+                            key={'resource_' + index} 
+                            type='number' 
+                            onChange={(e) => inputOnChange(index, parseInt(e.target.value))} />
                     </div>
                 ))
                 }

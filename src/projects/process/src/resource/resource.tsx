@@ -1,5 +1,5 @@
 import { useState} from "react";
-import {ResourceItem } from "./type"
+import ResourceItem from "./type"
 
 // Needs to prevent it from reloading.
 // Plan A: make it into it's own function

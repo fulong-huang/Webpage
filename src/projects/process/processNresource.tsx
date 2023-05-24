@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
 import {ProcessesDisplay} from './src/process/processes.tsx'
-import {ResourceDisplay, ResourceInput} from './src/resource/resource.tsx'
+import {ResourceDisplay } from './src/resource/resource.tsx'
 
 import ResourceItem from './src/resource/type.ts'
 import ProcessesItem from './src/process/type.ts'

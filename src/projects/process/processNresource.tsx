@@ -1,11 +1,12 @@
 import {useState} from 'react'
-import {ReadyQueueDisplay, ReadyQueueSetting} from './src/readyQueue/readyQueue.tsx'
-import {ProcessesDisplay, ProcessesSetting} from './src/process/processes.tsx'
+import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
+import {ProcessesDisplay} from './src/process/processes.tsx'
 import {ResourceDisplay, ResourceInput} from './src/resource/resource.tsx'
 
 import ResourceItem from './src/resource/type.ts'
 import ProcessesItem from './src/process/type.ts'
 import './processNresource.css'
+import {Settings} from './src/setting.tsx'
 
 export default function ProcessNResource(): JSX.Element{
     const [queue, setQueue] = useState<number[][]>(
@@ -31,9 +32,12 @@ export default function ProcessNResource(): JSX.Element{
         <h3><br/><br/>In Construction, come back later <br/><br/></h3>
         {/* Setting page: */}
         <div>
-            {<ReadyQueueSetting setQueue={setQueue} />}
-            {<ProcessesSetting setProcesses={setProcesses} />}
-            {<ResourceInput resources={resources} setResources={setResources} />}
+            {<Settings 
+                setQueue={setQueue} 
+                setProcesses={setProcesses} 
+                setResources={setResources} 
+                resources={resources} 
+            />}
         </div>
         {/* Tables: */}
         <div style={{display:'flex', flexWrap:'wrap'}}>

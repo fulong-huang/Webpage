@@ -1,35 +1,3 @@
-
-export const ReadyQueueSetting = (
-    {setQueue}: { setQueue: (newQueue: number[][]) => void}
-): JSX.Element => {
-    let currSize = 3;
-
-    const onChange = ({size}: {size:number}) => {
-        currSize = size;
-    }
-
-    const changeSize = () => {
-        // if(queue.length >= currSize){
-        //     setQueue(queue.slice(0, currSize))
-        //     return;
-        // }
-        // const newQueue = [... queue]
-        const newQueue = []
-        for(let i = 0; i < currSize; i++){
-            newQueue.push([])
-        }
-        setQueue(newQueue)
-    }
-
-    return (
-        <>
-        Ready Queue Size: 
-        <input type='number' onChange={(e) => onChange({size: parseInt(e.target.value)})} />
-        <button onClick={changeSize}>Submit</button>
-        </>
-    )
-}
-
 export const ReadyQueueDisplay = ({queue}: {queue: number[][]}): JSX.Element => {
 
     return (

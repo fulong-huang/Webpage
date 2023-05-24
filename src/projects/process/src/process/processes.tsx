@@ -1,37 +1,4 @@
 import ProcessesItem from './type.ts'
-
-export const ProcessesSetting = (
-    { setProcesses}: 
-    {setProcesses: (newP: ProcessesItem[]) => void}
-): JSX.Element => {
-
-    let currSize = 2;
-
-    const onChange = ({size}: {size:number}) => {
-        currSize = size;
-    }
-
-    const changeSize = () => {
-        const newProcesses = []
-        for(let i = 0; i < currSize; i++){
-            newProcesses.push({
-                processNum: i,
-                children: [],
-                resources: []
-            })
-        }
-        setProcesses(newProcesses)
-    }
-
-    return (
-        <>
-        Processes Size: 
-        <input type='number' onChange={(e) => onChange({size: parseInt(e.target.value)})} />
-        <button onClick={changeSize}>Submit</button>
-        </>
-    )
-}
-
 export const ProcessesDisplay = (
     {processes}: {processes: ProcessesItem[]}
 ): JSX.Element => {

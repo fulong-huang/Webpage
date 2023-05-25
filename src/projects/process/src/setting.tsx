@@ -2,76 +2,57 @@ import {useState} from 'react'
 import ResourceItem from "./resource/type";
 import ProcessesItem from "./process/type";
 
-const ReadyQueue = ({setQueue}: { setQueue: (newQueue: number[][]) => void}
-        ): JSX.Element => {
-    // ********************* Process **********************
-    let currSize = 3;
 
-    const onChange = ({size}: {size:number}) => {
-        currSize = size;
-    }
+const ChangeButton = (
+    {
+        setQueue, queueSize,
+        setProcess, processSize,
+        //setResource, resourceSize,
+    }:
+    {
+        setQueue: (newQueue: number[][]) => void,
+        setProcess: (newP: ProcessesItem[]) => void
+        //setResourc: (newValue: ResourceItem[]) => void
+        queueSize: number
+        processSize: number
+        //resourceSize: number
+    }): JSX.Element => {
 
-    const changeSize = () => {
-        // if(queue.length >= currSize){
-        //     setQueue(queue.slice(0, currSize))
-        //     return;
-        // }
-        // const newQueue = [... queue]
+    // ************ QUEUE **************
+    const changeQueueSize = (): void => {
         const newQueue = []
-            for(let i = 0; i < currSize; i++){
-                newQueue.push([])
-            }
+        for(let i = 0; i < queueSize; i++){
+            newQueue.push([])
+        }
         setQueue(newQueue)
     }
 
-    return (
-            <>
-            Ready Queue Size: 
-            <input type='number' onChange={(e) => onChange({size: parseInt(e.target.value)})} />
-            <button onClick={changeSize}>Submit</button>
-            </>
-           )
-}
 
-const ChangeButton = (): JSX.Element => {
-    return (
-        <>
-            
-        </>
-    )
-}
-
-const ProcessesSetting = (
-    { setProcesses}: 
-    {setProcesses: (newP: ProcessesItem[]) => void}
-): JSX.Element => {
-
-    let currSize = 2;
-
-    const onChange = ({size}: {size:number}) => {
-        currSize = size;
-    }
-
-    const changeSize = () => {
+    // ************ PROCESSES **************
+    const changeProcessSize = ():void => {
         const newProcesses = []
-        for(let i = 0; i < currSize; i++){
+        for(let i = 0; i < processSize; i++){
             newProcesses.push({
                 processNum: i,
                 children: [],
                 resources: []
             })
         }
-        setProcesses(newProcesses)
+        setProcess(newProcesses)
     }
 
+    const changeAllSize = (): void => {
+        changeQueueSize();
+        changeProcessSize();
+        //changeResourceSize();
+    }
     return (
         <>
-        Processes Size: 
-        <input type='number' onChange={(e) => onChange({size: parseInt(e.target.value)})} />
-        <button onClick={changeSize}>Submit</button>
+        <button onClick={changeAllSize}>Submit</button>    
         </>
     )
 }
+
 
 
 // Needs to prevent it from reloading.
@@ -172,13 +153,24 @@ export const Settings = (
         setResources: (newValue: ResourceItem[]) => void,
         resources: ResourceItem[]
     }) => {
+
+    const [queueSize, setQueueSize] = useState<number>(3);
+    const [processSize, setProcessSize] = useState<number>(2);
+    //const [resourceSize, setResourceSize] = useState<number>(1);
+
     // ********************* Process **********************
     return (
         <>
-        <ReadyQueue setQueue={setQueue} />
-        <ProcessesSetting setProcesses={setProcesses} />
+        <p> set Queue Size: 
+            <input type='number' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
+        </p>
+        <p> set Process Size: 
+            <input type='number' onChange={(e) => {setProcessSize(parseInt(e.target.value))}} />
+        </p>
+        <ChangeButton setQueue={setQueue} queueSize={queueSize} 
+            setProcess={setProcesses} processSize={processSize}/>
         <ResourceInput resources={resources} setResources={setResources} />
-        <ChangeButton />
+        //<input type='number' onChange={(e) => {setResourceSize(parseInt(e.target.value))}} />
         </>
     )
     

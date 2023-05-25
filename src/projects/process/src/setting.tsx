@@ -170,7 +170,6 @@ export const Settings = (
         <ChangeButton setQueue={setQueue} queueSize={queueSize} 
             setProcess={setProcesses} processSize={processSize}/>
         <ResourceInput resources={resources} setResources={setResources} />
-        //<input type='number' onChange={(e) => {setResourceSize(parseInt(e.target.value))}} />
         </>
     )
     

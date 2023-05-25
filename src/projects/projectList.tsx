@@ -24,6 +24,8 @@ const projectList : JSX.Element[] =
 
 export default function ProjectList(): JSX.Element{
 
+    window.scrollTo(0, 0)
+
     return (
         <ul className='project-list'>
             {projectList}

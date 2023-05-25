@@ -9,6 +9,7 @@ import './processNresource.css'
 import {Settings} from './src/setting.tsx'
 
 export default function ProcessNResource(): JSX.Element{
+    window.scrollTo(0, 0)
     const [queue, setQueue] = useState<number[][]>(
         [[-1], [-2, -3], []]
     )

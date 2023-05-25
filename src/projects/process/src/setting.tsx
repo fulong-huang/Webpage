@@ -2,8 +2,7 @@ import {useState} from 'react'
 import ResourceItem from "./resource/type";
 import ProcessesItem from "./process/type";
 
-const ReadyQueue = ( 
-        {setQueue}: { setQueue: (newQueue: number[][]) => void}
+const ReadyQueue = ({setQueue}: { setQueue: (newQueue: number[][]) => void}
         ): JSX.Element => {
     // ********************* Process **********************
     let currSize = 3;
@@ -32,6 +31,14 @@ const ReadyQueue = (
             <button onClick={changeSize}>Submit</button>
             </>
            )
+}
+
+const ChangeButton = (): JSX.Element => {
+    return (
+        <>
+            
+        </>
+    )
 }
 
 const ProcessesSetting = (
@@ -71,10 +78,11 @@ const ProcessesSetting = (
 // Plan A: make it into it's own function
 // Plan B: create a button to trigger instead of setting them individually.
 const ResourceManager = ({inputData, resources, setResources}: 
-    {inputData: number[],
-    resources: ResourceItem[],
-    setResources: (newValue: ResourceItem[]) => void}
-): JSX.Element => {
+    {
+        inputData: number[],
+        resources: ResourceItem[],
+        setResources: (newValue: ResourceItem[]) => void
+    }): JSX.Element => {
 
     const inputOnChange = (
         idx: number, newTotal: number,
@@ -170,6 +178,7 @@ export const Settings = (
         <ReadyQueue setQueue={setQueue} />
         <ProcessesSetting setProcesses={setProcesses} />
         <ResourceInput resources={resources} setResources={setResources} />
+        <ChangeButton />
         </>
     )
     

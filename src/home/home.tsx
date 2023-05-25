@@ -3,6 +3,7 @@ import './home.css'
 import {ItemList, Body} from './data.tsx'
 
 export default function Home(): JSX.Element{
+    window.scrollTo(0, 0)
     return (
         <>
         <div className='head-container'>

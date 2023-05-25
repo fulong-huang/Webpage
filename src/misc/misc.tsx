@@ -2,6 +2,7 @@
 import './misc.css'
 
 export default function Misc(): JSX.Element{
+    window.scrollTo(0, 0)
     return (
         <>
         <div className='Misc-container'>

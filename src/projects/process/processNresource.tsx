@@ -25,7 +25,26 @@ export default function ProcessNResource(): JSX.Element{
             resources: [-1, -2]
         }]
     )
-    const [resources, setResources] = useState<ResourceItem[]>([])
+    const [resources, setResources] = useState<ResourceItem[]>([
+        {
+            resourceNum: 0,
+            total: 3,
+            avaliable: 3,
+            waitlist: []
+        },
+        {
+            resourceNum: 1,
+            total: 3,
+            avaliable: 3,
+            waitlist: []
+        },
+        {
+            resourceNum: 2,
+            total: 3,
+            avaliable: 3,
+            waitlist: []
+        }
+    ])
 
     return (
         <>
@@ -36,8 +55,8 @@ export default function ProcessNResource(): JSX.Element{
             {<Settings 
                 setQueue={setQueue} 
                 setProcesses={setProcesses} 
-                setResources={setResources} 
-                resources={resources} 
+                setResource={setResources} 
+                resource={resources} 
             />}
         </div>
         {/* Tables: */}

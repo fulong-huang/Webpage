@@ -13,12 +13,14 @@ export const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.E
                         <p className='table-head'>Avaliable</p>
                         <p className='table-head'>Waitlist</p>
                     </li>
+                    {/*
                     <li className='resource-row' key={'resource_-1'}>
-                    <p className='content-center'>-1</p>
-                    <p className='content-center'>-1</p>
-                    <p className='content-center'>-1</p>
-                    <p className='content-center'>place holder</p>
-                </li>                   
+                        <p className='content-center'>-1</p>
+                        <p className='content-center'>-1</p>
+                        <p className='content-center'>-1</p>
+                        <p className='content-center'>place holder</p>
+                    </li>                   
+                    */}
                    {
                     resources.map((item, index) => (
                         <li className='resource-row' key={'resource_'+index}>

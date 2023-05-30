@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import ResourceItem from "./resource/type";
 import ProcessesItem from "./process/type";
 
@@ -7,15 +7,23 @@ const ChangeButton = (
     {
         setQueue, queueSize,
         setProcess, processSize,
-        //setResource, resourceSize,
+        setResource, resourceSize,
+        inputData, setInputData,
+        resource,
     }:
     {
         setQueue: (newQueue: number[][]) => void,
-        setProcess: (newP: ProcessesItem[]) => void
-        //setResourc: (newValue: ResourceItem[]) => void
-        queueSize: number
-        processSize: number
-        //resourceSize: number
+        setProcess: (newP: ProcessesItem[]) => void,
+        setResource: (newValue: ResourceItem[]) => void,
+        setInputData: (newinput: number[]) => void,
+
+        resource: ResourceItem[],
+        inputData: number[],
+        
+        queueSize: number,
+        processSize: number,
+        resourceSize: number,
+        
     }): JSX.Element => {
 
     // ************ QUEUE **************
@@ -41,10 +49,35 @@ const ChangeButton = (
         setProcess(newProcesses)
     }
 
+    const changeResourceSize = ():void => {
+        if(resourceSize <= resource.length){
+            setResource(resource.slice(0, resourceSize));
+            setInputData(inputData.slice(0, resourceSize));
+            return;
+        }
+        
+        const newInputData = [...inputData]
+        const newResource = [... resource]
+
+        for(let i = resource.length; i< resourceSize; i++){
+            const item: ResourceItem = {
+                resourceNum: i + 1,
+                total: 3, 
+                avaliable: 3, 
+                waitlist: [],
+            }
+            newResource.push(item);
+            newInputData.push(3);
+        }
+        setInputData(newInputData);
+        setResource(newResource);
+    }
+
+
     const changeAllSize = (): void => {
         changeQueueSize();
         changeProcessSize();
-        //changeResourceSize();
+        changeResourceSize();
     }
     return (
         <>
@@ -54,10 +87,7 @@ const ChangeButton = (
 }
 
 
-
-// Needs to prevent it from reloading.
-// Plan A: make it into it's own function
-// Plan B: create a button to trigger instead of setting them individually.
+// TODO: Add a button to change everything at once
 const ResourceManager = ({inputData, resources, setResources}: 
     {
         inputData: number[],
@@ -65,111 +95,80 @@ const ResourceManager = ({inputData, resources, setResources}:
         setResources: (newValue: ResourceItem[]) => void
     }): JSX.Element => {
 
-    const inputOnChange = (
-        idx: number, newTotal: number,
-        ) => {
-
-        const newReosurces = [... resources]
-        newReosurces[idx].avaliable = newTotal
-        newReosurces[idx].total = newTotal
-        setResources(newReosurces)
+    const onClick = ():void => {
+        const newResources = [... resources]
+        for(let i = 0; i < inputData.length; i++){
+            newResources[i].avaliable = inputData[i];
+            newResources[i].total = inputData[i];
+        }
+        setResources(newResources);
     }
+//    const inputOnChange = (
+//        idx: number, newTotal: number,
+//        ) => {
+//
+//        const newReosurces = [... resources]
+//        newReosurces[idx].avaliable = newTotal
+//        newReosurces[idx].total = newTotal
+//        setResources(newReosurces)
+//    }
 
     return (
         <>
-        <div>
-            <p>Start</p>
-            {
+        <p>Start</p>
+        {
             inputData.map((_, index) => (
                 <div key={'resource_' + index}>
                     #{index}: 
                     <input 
                         key={'resource_' + index} 
                         type='number' 
-                        placeholder="3"
-                        onChange={(e) => inputOnChange(index, parseInt(e.target.value))} />
+                        placeholder={inputData[index].toString()}
+                        onChange={(e) => inputData[index] = parseInt(e.target.value)} />
                 </div>
             ))
-            }
-            <p>End</p>
-        </div>
+        }
+        <button onClick={onClick}> button </button>
+        <p>End</p>
         </>
     )
 }
 
-
-const ResourceInput = ({resources, setResources} : 
-    {
-        resources: ResourceItem[],
-        setResources: (newValue: ResourceItem[]) => void,
-    }): JSX.Element => {
-
-    const [size, setSize] = useState<number>(0);
-    const [inputData, setInputData] = useState<number[]>([]);
-
-    const changeInputSize = () =>{
-        if(size <= resources.length){
-            setResources(resources.slice(0, size))
-            setInputData(inputData.slice(0, size))
-            return;
-        }
-
-        const newInputData = [... inputData]
-        const newResources = [... resources]
-
-        for(let i = resources.length; i < size; i++){
-            const item: ResourceItem = {
-                resourceNum: i + 1,
-                total: 3,
-                avaliable: 3,
-                waitlist: [],
-            }
-            newResources.push(item)
-            newInputData.push(3)
-        }
-        setInputData(newInputData)
-        setResources(newResources);
-    }
-    
-    return (
-        <>
-            <div>Resources Size: &nbsp;
-                <input type='number' 
-                    onChange={(e) => {setSize(parseInt(e.target.value))}}>
-
-                </input>
-                <button onClick={changeInputSize}>Submit</button>
-            </div>
-            <ResourceManager inputData={inputData} resources={resources} setResources={setResources} />
-        </>
-    )
-}
 
 export const Settings = (
-    {setQueue, setProcesses, setResources, resources} : 
+    {setQueue, setProcesses, setResource, resource} : 
     {
         setQueue: (newQueue: number[][]) => void,
         setProcesses: (newP: ProcessesItem[]) => void,
-        setResources: (newValue: ResourceItem[]) => void,
-        resources: ResourceItem[]
+        setResource: (newValue: ResourceItem[]) => void,
+        resource: ResourceItem[]
     }) => {
 
     const [queueSize, setQueueSize] = useState<number>(3);
     const [processSize, setProcessSize] = useState<number>(2);
-    //const [resourceSize, setResourceSize] = useState<number>(1);
+    const [resourceSize, setResourceSize] = useState<number>(1);
+    const [inputData, setInputData] = useState<number[]>([3,3,3]);
 
     // ********************* Process **********************
     return (
         <>
         <p> set Queue Size: 
-            <input type='number' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
+            <input type='number' placeholder='3' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
         </p>
         <p> set Process Size: 
-            <input type='number' onChange={(e) => {setProcessSize(parseInt(e.target.value))}} />
+            <input type='number' placeholder='0: should not exist'  onChange={(e) => {setProcessSize(parseInt(e.target.value))}} />
+        </p>
+        <p> set Resource Size:
+            <input type='number' placeholder='3' onChange={(e) => {setResourceSize(parseInt(e.target.value))}} />
         </p>
         <ChangeButton setQueue={setQueue} queueSize={queueSize} 
-            setProcess={setProcesses} processSize={processSize}/>
-        <ResourceInput resources={resources} setResources={setResources} />
+            setProcess={setProcesses} processSize={processSize}
+            setResource={setResource} resourceSize={resourceSize}
+            inputData={inputData} setInputData={setInputData}
+            resource={resource}
+        />
+
+        <ResourceManager inputData={inputData} resources={resource} setResources={setResource} />
         </>
     )
     

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
 import {ProcessesDisplay} from './src/process/processes.tsx'
 import {ResourceDisplay } from './src/resource/resource.tsx'
@@ -10,11 +10,14 @@ import {Settings} from './src/setting.tsx'
 
 export default function ProcessNResource(): JSX.Element{
     window.scrollTo(0, 0)
-    const [queue, setQueue] = useState<number[][]>(
-        [[-1], [-2, -3], []]
-    )
-    const [processes, setProcesses] = useState<ProcessesItem[]>(
-        [{
+    const [queue, setQueue] = useState<number[][]>([
+        //[-1], [-2, -3], []
+        [],
+        [],
+        []
+    ])
+    const [processes, setProcesses] = useState<ProcessesItem[]>([
+        {
             processNum: -1,
             children: [],
             resources: [-1]
@@ -23,8 +26,8 @@ export default function ProcessNResource(): JSX.Element{
             processNum: -2,
             children: [-1],
             resources: [-1, -2]
-        }]
-    )
+        }
+    ])
     const [resources, setResources] = useState<ResourceItem[]>([
         {
             resourceNum: 0,
@@ -45,6 +48,11 @@ export default function ProcessNResource(): JSX.Element{
             waitlist: []
         }
     ])
+    
+    // TODO: remove use effect
+    useEffect(()=>{
+        setProcesses([])
+    }, [])
 
     return (
         <>
@@ -54,18 +62,24 @@ export default function ProcessNResource(): JSX.Element{
         <div>
             {<Settings 
                 setQueue={setQueue} 
-                setProcesses={setProcesses} 
+                //setProcesses={setProcesses} 
                 setResource={setResources} 
                 resource={resources} 
             />}
         </div>
         {/* Tables: */}
-        <div style={{display:'flex', flexWrap:'wrap'}}>
-            {<ReadyQueueDisplay queue={queue} />}
-            {<ProcessesDisplay processes={processes} />}
+        {/*<div style={{display:'flex', flexWrap:'wrap', alignItems:'center',  margin: '50px'}}>*/}
+        <div className="main-content-container">
+            <div className="first-column">
+                {<ReadyQueueDisplay queue={queue} />}
+                {<ResourceDisplay resources={resources}/>}
+            </div>
+            <div className="second-column">
+                {<ProcessesDisplay processes={processes} />}
+            </div>
 
-            {<ResourceDisplay resources={resources}/>}
         </div>
        </>
     );
 }
+

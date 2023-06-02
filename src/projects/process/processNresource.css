@@ -1,3 +1,8 @@
+.main-content-container{
+    display: grid;
+    grid-template-columns: minmax(200px, 400px) minmax(250px, 450px);
+}
+
 .table{
     /* width: 200px; */
     background-color: lightgray;
@@ -28,7 +33,7 @@
 
 .resource-row{    
     display: grid;
-    grid-template-columns: 50px 60px minmax(100px, 200px) minmax(100px, 200px);
+    grid-template-columns: 50px 60px 90px minmax(100px, 200px);
 }
 
 

@@ -14,27 +14,25 @@ export const ProcessesDisplay = (
                 </li>
 
                 {
-                    processes.map((item, index) => (
-                        <>
-                            <li className='processes-row' key={'P_' + index}>
-                                <p className='content-center'>{
-                                    item.processNum
-                                }</p>
-                                <p className='content-center'>{
-                                    item.children.length != 0 &&
-                                    item.children.join(', ')
-                                    ||
-                                    'null'
-                                }</p>
-                                <p className='content-center'>{
-                                    item.resources.length != 0 &&
-                                    item.resources.join(', ')
-                                    ||
-                                    'null'
-                                }</p>
-                            </li>
-                        </>
-                    ))
+                processes.map((item) => (
+                    <li className='processes-row' key={'P_' + item.processNum}>
+                        <p className='content-center'>{
+                            item.processNum
+                        }</p>
+                        <p className='content-center'>{
+                            item.children.length != 0 &&
+                            item.children.join(', ')
+                            ||
+                            'null'
+                        }</p>
+                        <p className='content-center'>{
+                            item.resources.length != 0 &&
+                            item.resources.join(', ')
+                            ||
+                            'null'
+                        }</p>
+                    </li>
+                ))
                 }
 
             </ul>
@@ -70,3 +68,4 @@ export default function Processes(): JSX.Element{
         </>
     )
 }
+

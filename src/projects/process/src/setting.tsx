@@ -1,19 +1,19 @@
-import {useState} from 'react'
+import {useState } from 'react'
 import ResourceItem from "./resource/type";
-import ProcessesItem from "./process/type";
+//import ProcessesItem from "./process/type";
 
 
 const ChangeButton = (
     {
         setQueue, queueSize,
-        setProcess, processSize,
+        //setProcess, processSize,
         setResource, resourceSize,
         inputData, setInputData,
         resource,
     }:
     {
         setQueue: (newQueue: number[][]) => void,
-        setProcess: (newP: ProcessesItem[]) => void,
+        //setProcess: (newP: ProcessesItem[]) => void,
         setResource: (newValue: ResourceItem[]) => void,
         setInputData: (newinput: number[]) => void,
 
@@ -21,7 +21,7 @@ const ChangeButton = (
         inputData: number[],
         
         queueSize: number,
-        processSize: number,
+        //processSize: number,
         resourceSize: number,
         
     }): JSX.Element => {
@@ -37,17 +37,17 @@ const ChangeButton = (
 
 
     // ************ PROCESSES **************
-    const changeProcessSize = ():void => {
-        const newProcesses = []
-        for(let i = 0; i < processSize; i++){
-            newProcesses.push({
-                processNum: i,
-                children: [],
-                resources: []
-            })
-        }
-        setProcess(newProcesses)
-    }
+//    const changeProcessSize = ():void => {
+//        const newProcesses = []
+//        for(let i = 0; i < processSize; i++){
+//            newProcesses.push({
+//                processNum: i,
+//                children: [],
+//                resources: []
+//            })
+//        }
+//        setProcess(newProcesses)
+//    }
 
     const changeResourceSize = ():void => {
         if(resourceSize <= resource.length){
@@ -76,7 +76,7 @@ const ChangeButton = (
 
     const changeAllSize = (): void => {
         changeQueueSize();
-        changeProcessSize();
+        //changeProcessSize();
         changeResourceSize();
     }
     return (
@@ -136,17 +136,17 @@ const ResourceManager = ({inputData, resources, setResources}:
 
 
 export const Settings = (
-    {setQueue, setProcesses, setResource, resource} : 
+    {setQueue, setResource, resource} : 
     {
         setQueue: (newQueue: number[][]) => void,
-        setProcesses: (newP: ProcessesItem[]) => void,
+        //setProcesses: (newP: ProcessesItem[]) => void,
         setResource: (newValue: ResourceItem[]) => void,
         resource: ResourceItem[]
     }) => {
 
     const [queueSize, setQueueSize] = useState<number>(3);
-    const [processSize, setProcessSize] = useState<number>(2);
-    const [resourceSize, setResourceSize] = useState<number>(1);
+    //const [processSize, setProcessSize] = useState<number>(2);
+    const [resourceSize, setResourceSize] = useState<number>(3);
     const [inputData, setInputData] = useState<number[]>([3,3,3]);
 
     // ********************* Process **********************
@@ -155,14 +155,16 @@ export const Settings = (
         <p> set Queue Size: 
             <input type='number' placeholder='3' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
         </p>
+{/*
         <p> set Process Size: 
             <input type='number' placeholder='0: should not exist'  onChange={(e) => {setProcessSize(parseInt(e.target.value))}} />
         </p>
+*/}
         <p> set Resource Size:
             <input type='number' placeholder='3' onChange={(e) => {setResourceSize(parseInt(e.target.value))}} />
         </p>
         <ChangeButton setQueue={setQueue} queueSize={queueSize} 
-            setProcess={setProcesses} processSize={processSize}
+            //setProcess={setProcesses} processSize={processSize}
             setResource={setResource} resourceSize={resourceSize}
             inputData={inputData} setInputData={setInputData}
             resource={resource}

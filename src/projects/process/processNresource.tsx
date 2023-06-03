@@ -1,12 +1,14 @@
 import {useState, useEffect} from 'react'
 import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
-import {ProcessesDisplay} from './src/process/processes.tsx'
+import Processes, {ProcessesDisplay} from './src/process/processes.tsx'
 import {ResourceDisplay } from './src/resource/resource.tsx'
 
 import ResourceItem from './src/resource/type.ts'
 import ProcessesItem from './src/process/type.ts'
 import './processNresource.css'
 import {Settings} from './src/setting.tsx'
+
+import GetUserInput from './src/input.tsx'
 
 export default function ProcessNResource(): JSX.Element{
     window.scrollTo(0, 0)
@@ -16,18 +18,7 @@ export default function ProcessNResource(): JSX.Element{
         [],
         []
     ])
-    const [processes, setProcesses] = useState<ProcessesItem[]>([
-        {
-            processNum: -1,
-            children: [],
-            resources: [-1]
-        },
-        {
-            processNum: -2,
-            children: [-1],
-            resources: [-1, -2]
-        }
-    ])
+    const [processes, setProcesses] = useState<ProcessesItem[]>([])
     const [resources, setResources] = useState<ResourceItem[]>([
         {
             resourceNum: 0,
@@ -66,6 +57,11 @@ export default function ProcessNResource(): JSX.Element{
                 setResource={setResources} 
                 resource={resources} 
             />}
+        </div>
+        <div>
+            <GetUserInput process={processes} setProcess={setProcesses} 
+                        readyQueue={queue} setReadyQueue={setQueue}
+                        resource={resources} setResource={setResources}/>
         </div>
         {/* Tables: */}
         {/*<div style={{display:'flex', flexWrap:'wrap', alignItems:'center',  margin: '50px'}}>*/}

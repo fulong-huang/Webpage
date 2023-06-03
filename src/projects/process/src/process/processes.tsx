@@ -1,4 +1,5 @@
 import ProcessesItem from './type.ts'
+
 export const ProcessesDisplay = (
     {processes}: {processes: ProcessesItem[]}
 ): JSX.Element => {
@@ -44,7 +45,7 @@ export const ProcessesDisplay = (
 export default function Processes(): JSX.Element{
     return (
         <>
-		<div className='table'> 
+        <div className='table'> 
             <h1 className='table-head'>Processes</h1>
             <ul>
                 <li className='processes-row'>

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
-import Processes, {ProcessesDisplay} from './src/process/processes.tsx'
+import {ProcessesDisplay} from './src/process/processes.tsx'
 import {ResourceDisplay } from './src/resource/resource.tsx'
 
 import ResourceItem from './src/resource/type.ts'

@@ -12,17 +12,21 @@ export function deleteProcess({
 }): void{
     for(let i = 0; i < processes.length; i++){
         if(processes[i].processNum == processNumber){
-            for(let childIdx = 0; childIdx < processes[i].children.length; childIdx++){
+            // TODO: clear holding resources
+            const [removedProcess] = processes.splice(i, 1)
+            setProcesses([...processes])
+            for(let childIdx = 0; childIdx < removedProcess.children.length; childIdx++){
                 deleteProcess({
                     processes: processes,
                     setProcesses: setProcesses,
-                    processNumber: processes[i].children[childIdx],
+                    processNumber: removedProcess.children[childIdx].processNum
                 })
             }
+            console.log(processes)
+            
             break;
         }
     }
-
 }
 
 export function createProcess({
@@ -33,14 +37,15 @@ export function createProcess({
     setProcesses: (newP: ProcessesItem[]) => void,
     priorityVal: number,
     processNumber: number,
-}): void{
-    const newProcessItems: ProcessesItem[] = [...processes]
-    newProcessItems.push({
+}): ProcessesItem{
+    const newProcess : ProcessesItem = {
         processNum: processNumber, //TODO: add processNumber getter.
         priority: priorityVal,
         children: [],
         resources: [],
-    })
+    }
+    const newProcessItems: ProcessesItem[] = [...processes, newProcess]
     setProcesses(newProcessItems);
+    return newProcess
 }
 

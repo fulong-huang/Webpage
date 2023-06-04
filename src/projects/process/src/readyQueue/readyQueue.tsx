@@ -1,4 +1,6 @@
-export const ReadyQueueDisplay = ({queue}: {queue: number[][]}): JSX.Element => {
+import ReadyQueueItem from "./type"
+
+export const ReadyQueueDisplay = ({queue}: {queue: ReadyQueueItem[]}): JSX.Element => {
 
     return (
         <>
@@ -16,8 +18,8 @@ export const ReadyQueueDisplay = ({queue}: {queue: number[][]}): JSX.Element => 
                                 queue.length - index - 1
                             }</p>
                             <p className='content-left'>{
-                                queue[queue.length - index - 1].length != 0 &&
-                                queue[queue.length - index - 1].join(', ')
+                                queue[queue.length - index - 1].queueItem.length != 0 &&
+                                queue[queue.length - index - 1].queueItem.map((pNum) => pNum.processNum).join(', ')
                                 ||
                                 'null'
                             }</p>

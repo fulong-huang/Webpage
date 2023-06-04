@@ -1,11 +1,14 @@
 import {useEffect, useState,} from 'react'
 
 import ProcessesItem from './process/type';
+import ResourceItem from './resource/type';
+import ReadyQueueItem from './readyQueue/type';
+
 import { 
     deleteProcess, createProcess 
     } from './process/processFunctions'
-import ResourceItem from './resource/type';
 
+import { addToReadyList } from './readyQueue/readyQueueFunctions';
 
 export default function GetUserInput(
     {
@@ -16,14 +19,14 @@ export default function GetUserInput(
     {
         process: ProcessesItem[],
         setProcess: (newP: ProcessesItem[]) => void,
-        readyQueue: number[][],
-        setReadyQueue: (newQ: number[][]) => void,
+        readyQueue: ReadyQueueItem[],
+        setReadyQueue: (newQ: ReadyQueueItem[]) => void,
         resource: ResourceItem[],
         setResource: (newR: ResourceItem[]) => void,
     }
 ): JSX.Element{
 
-    const [processCount, setProcessCount] = useState<number>(0)
+    const [processCount, setProcessCount] = useState<number>(1)
 
     const [inputCommand, setInputCommand] = useState<string>('')
 
@@ -40,19 +43,32 @@ export default function GetUserInput(
         }
         else if(commandsValue.length == 2){
             const arg = parseInt(commandsValue[1])
-            if(!arg){
+            if(isNaN(arg)){
+                // exception
                 return;
             }
             if(command === "cr"){
-                createProcess({
+                //TODO add to ready queue
+                if(arg < 0 || arg >= readyQueue.length){
+                    // exception
+                    return;
+                }
+                const newProcess = createProcess({
                     processes: process,
                     setProcesses: setProcess,
-                    priorityVal: 2,
+                    priorityVal: arg,
                     processNumber: processCount,
+                })
+                addToReadyList({
+                    readyQueue: readyQueue,
+                    setReadyQueue: setReadyQueue,
+                    processToAdd: newProcess,
                 })
                 setProcessCount(processCount+1)
             }
             else if(command === "de"){
+                //TODO remove from ready list 
+                //TODO remove from resource waitlist
                 deleteProcess({
                     processes: process,
                     setProcesses: setProcess,

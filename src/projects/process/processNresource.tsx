@@ -5,6 +5,7 @@ import {ResourceDisplay } from './src/resource/resource.tsx'
 
 import ResourceItem from './src/resource/type.ts'
 import ProcessesItem from './src/process/type.ts'
+import ReadyQueueItem from './src/readyQueue/type.ts'
 import './processNresource.css'
 import {Settings} from './src/setting.tsx'
 
@@ -12,13 +13,26 @@ import GetUserInput from './src/input.tsx'
 
 export default function ProcessNResource(): JSX.Element{
     window.scrollTo(0, 0)
-    const [queue, setQueue] = useState<number[][]>([
-        //[-1], [-2, -3], []
-        [],
-        [],
-        []
+
+    const [processes, setProcesses] = useState<ProcessesItem[]>([
+        {
+            priority: 0,
+            resources: [],
+            children: [],
+            processNum: 0,
+        }
     ])
-    const [processes, setProcesses] = useState<ProcessesItem[]>([])
+    const [queue, setQueue] = useState<ReadyQueueItem[]>([
+        {
+            queueItem: [processes[0]]
+        },
+        {
+            queueItem: []
+        },
+        {
+            queueItem: []
+        }
+    ])
     const [resources, setResources] = useState<ResourceItem[]>([
         {
             resourceNum: 0,
@@ -40,10 +54,6 @@ export default function ProcessNResource(): JSX.Element{
         }
     ])
     
-    // TODO: remove use effect
-    useEffect(()=>{
-        setProcesses([])
-    }, [])
 
     return (
         <>

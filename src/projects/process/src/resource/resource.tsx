@@ -28,7 +28,7 @@ export const ResourceDisplay = ({resources}: {resources: ResourceItem[]}): JSX.E
                             <p className='content-center'>{item.total}</p>
                             <p className='content-center'>{item.avaliable}</p>
                             <p className='content-center'>{
-                                item.waitlist.length != 0 && item.waitlist.join(', ')
+                                item.waitlist.length != 0 && item.waitlist.map((pNum) => pNum.processNum).join(', ')
                                 || 'null'
                             }</p>
                         </li>

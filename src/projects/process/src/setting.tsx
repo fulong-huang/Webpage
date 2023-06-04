@@ -1,5 +1,6 @@
 import {useState } from 'react'
 import ResourceItem from "./resource/type";
+import ReadyQueueItem from './readyQueue/type';
 //import ProcessesItem from "./process/type";
 
 
@@ -12,7 +13,7 @@ const ChangeButton = (
         resource,
     }:
     {
-        setQueue: (newQueue: number[][]) => void,
+        setQueue: (newQueue: ReadyQueueItem[]) => void,
         //setProcess: (newP: ProcessesItem[]) => void,
         setResource: (newValue: ResourceItem[]) => void,
         setInputData: (newinput: number[]) => void,
@@ -28,9 +29,11 @@ const ChangeButton = (
 
     // ************ QUEUE **************
     const changeQueueSize = (): void => {
-        const newQueue = []
+        const newQueue: ReadyQueueItem[] = []
         for(let i = 0; i < queueSize; i++){
-            newQueue.push([])
+            newQueue.push({
+                queueItem: []
+            })
         }
         setQueue(newQueue)
     }
@@ -138,7 +141,7 @@ const ResourceManager = ({inputData, resources, setResources}:
 export const Settings = (
     {setQueue, setResource, resource} : 
     {
-        setQueue: (newQueue: number[][]) => void,
+        setQueue: (newQueue: ReadyQueueItem[]) => void,
         //setProcesses: (newP: ProcessesItem[]) => void,
         setResource: (newValue: ResourceItem[]) => void,
         resource: ResourceItem[]

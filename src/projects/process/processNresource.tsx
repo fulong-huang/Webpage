@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
 import {ProcessesDisplay} from './src/process/processes.tsx'
 import {ResourceDisplay } from './src/resource/resource.tsx'
@@ -12,8 +12,9 @@ import {Settings} from './src/setting.tsx'
 import GetUserInput from './src/input.tsx'
 
 export default function ProcessNResource(): JSX.Element{
-    window.scrollTo(0, 0)
-
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    }, [])
     const [processes, setProcesses] = useState<ProcessesItem[]>([
         {
             priority: 0,

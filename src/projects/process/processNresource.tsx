@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {ReadyQueueDisplay} from './src/readyQueue/readyQueue.tsx'
 import {ProcessesDisplay} from './src/process/processes.tsx'
 import {ResourceDisplay } from './src/resource/resource.tsx'

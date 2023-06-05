@@ -1,6 +1,42 @@
 import ProcessesItem from './type.ts'
 
+export function findProcess({
+    processes, processNumber
+}: {
+    processes: ProcessesItem[],
+    processNumber: number
+}): ProcessesItem | null {
+    if(processNumber < 0) return null;
+    for(let i = 0; i < processes.length; i++){
+        if(processes[i].processNum == processNumber){
+            return processes[i]
+        }
+    }
+    return null;
+}
 
+export function findAllProcessesNumber({
+    processes, processNumber
+}: {
+    processes: ProcessesItem[]
+    processNumber: number
+}): number[]{
+    let result: number[] = []
+    for(let i = 0; i < processes.length; i++){
+        if(processes[i].processNum == processNumber){
+            result.push(processNumber)
+            const len = processes[i].children.length;
+            for(let childIdx = 0; childIdx < len; childIdx++){
+                result = result.concat(findAllProcessesNumber({
+                    processes: processes,
+                    processNumber: processes[i].children[childIdx].processNum
+                }))
+            }
+            break;
+        }
+    }
+    return result
+}
 
 export function deleteProcess({
     processes, setProcesses,
@@ -11,20 +47,20 @@ export function deleteProcess({
     processNumber: number
 }): void{
     for(let i = 0; i < processes.length; i++){
-        if(processes[i].processNum == processNumber){
-            // TODO: clear holding resources
-            const [removedProcess] = processes.splice(i, 1)
-            setProcesses([...processes])
-            for(let childIdx = 0; childIdx < removedProcess.children.length; childIdx++){
-                deleteProcess({
-                    processes: processes,
-                    setProcesses: setProcesses,
-                    processNumber: removedProcess.children[childIdx].processNum
-                })
+        const childLen = processes[i].children.length;
+        for(let ci = 0; ci < childLen; ci++){
+            if(processes[i].children[ci].processNum == processNumber){
+                processes[i].children.splice(ci, 1)
+                i += processes.length
+                break;
             }
-            console.log(processes)
-            
-            break;
+        }
+    }
+    for(let i = 0; i < processes.length; i++){
+        if(processes[i].processNum == processNumber){
+            processes.splice(i, 1)
+            setProcesses([...processes])
+            return;
         }
     }
 }

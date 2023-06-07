@@ -15,6 +15,7 @@ export default function ProcessNResource(): JSX.Element{
     useEffect(()=>{
         window.scrollTo(0, 0)
     }, [])
+    const [processCount, setProcessCount] = useState<number>(1)
     const [processes, setProcesses] = useState<ProcessesItem[]>([
         {
             priority: 0,
@@ -56,6 +57,8 @@ export default function ProcessNResource(): JSX.Element{
     ])
     
 
+    const [currentProcess, setCurrentProcess] = useState<ProcessesItem>(processes[0])
+
     return (
         <>
         {/* Processes */}
@@ -64,15 +67,20 @@ export default function ProcessNResource(): JSX.Element{
         <div>
             {<Settings 
                 setQueue={setQueue} 
-                //setProcesses={setProcesses} 
+                setProcesses={setProcesses} 
                 setResource={setResources} 
                 resource={resources} 
+                setCurrentProcess={setCurrentProcess}
+                setProcessCount = {setProcessCount}
             />}
         </div>
         <div>
             <GetUserInput process={processes} setProcess={setProcesses} 
                         readyQueue={queue} setReadyQueue={setQueue}
-                        resource={resources} setResource={setResources}/>
+                        resource={resources} setResource={setResources}
+                        currentProcess={currentProcess} setCurrentProcess={setCurrentProcess}
+                        processCount={processCount} setProcessCount={setProcessCount}
+                        />
         </div>
         {/* Tables: */}
         {/*<div style={{display:'flex', flexWrap:'wrap', alignItems:'center',  margin: '50px'}}>*/}

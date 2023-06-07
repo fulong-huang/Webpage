@@ -16,6 +16,8 @@ export default function GetUserInput(
         process, setProcess,
         readyQueue, setReadyQueue,
         resource, setResource,
+        currentProcess, setCurrentProcess,
+        processCount, setProcessCount,
     }:
     {
         process: ProcessesItem[],
@@ -24,12 +26,13 @@ export default function GetUserInput(
         setReadyQueue: (newQ: ReadyQueueItem[]) => void,
         resource: ResourceItem[],
         setResource: (newR: ResourceItem[]) => void,
+        currentProcess: ProcessesItem,
+        setCurrentProcess: (newCP: ProcessesItem) => void
+        processCount: number,
+        setProcessCount: (newPC: number) => void,
     }
 ): JSX.Element{
 
-    const [processCount, setProcessCount] = useState<number>(1)
-
-    const [currentProcess, setCurrentProcess] = useState<ProcessesItem>(process[0])
 
     const [inputCommand, setInputCommand] = useState<string>('')
 

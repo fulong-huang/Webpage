@@ -85,3 +85,53 @@ export function createProcess({
     return newProcess
 }
 
+export function appendResource({
+    processes, setProcesses,
+    targetProcess, resourceNum,
+    amountRequested
+}: {
+    processes: ProcessesItem[],
+    setProcesses: (newP: ProcessesItem[]) => void,
+    targetProcess: ProcessesItem,
+    resourceNum: number,
+    amountRequested: number
+}): void {
+    for(let i = 0; i < targetProcess.resources.length; i++){
+        if(targetProcess.resources[i].resourceNum === resourceNum){
+            targetProcess.resources[i].holding += amountRequested
+            setProcesses([...processes])
+            return;
+        }
+    }
+    targetProcess.resources.push({
+        resourceNum: resourceNum,
+        holding: amountRequested
+    })
+    console.log("AddedProcess")
+    setProcesses([...processes])
+}
+
+export function releaseResourceFromProcess({
+    processes, setProcesses,
+    resourceNum, freedAmount,
+    targetProcess
+}:{
+    processes: ProcessesItem[],
+    setProcesses: (newP: ProcessesItem[]) => void,
+    resourceNum: number,
+    freedAmount: number
+    targetProcess: ProcessesItem
+}): void{
+    for(let i = 0; i < targetProcess.resources.length; i++){
+        if(targetProcess.resources[i].resourceNum === resourceNum){
+            targetProcess.resources[i].holding -= freedAmount
+            if(targetProcess.resources[i].holding === 0){
+                targetProcess.resources.splice(i, 1)
+            }
+            setProcesses([...processes])
+            break;
+        }
+    }
+}
+
+

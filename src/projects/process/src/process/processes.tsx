@@ -22,13 +22,15 @@ export const ProcessesDisplay = (
                         }</p>
                         <p className='content-center'>{
                             item.children.length != 0 &&
-                            item.children.join(', ')
+                            item.children.map((itm) => itm.processNum).join(', ')
                             ||
                             'null'
                         }</p>
                         <p className='content-center'>{
                             item.resources.length != 0 &&
-                            item.resources.join(', ')
+                            item.resources.map(
+                                (i) => `(#${i.resourceNum}, ${i.holding})`
+                            ).join(', ')
                             ||
                             'null'
                         }</p>

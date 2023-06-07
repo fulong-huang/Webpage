@@ -1,4 +1,3 @@
-import ProcessesItem from "../process/type";
 
 export default interface ResourceItem{
     resourceNum: number,
@@ -6,6 +5,9 @@ export default interface ResourceItem{
     // setTotal: {(newTotal: number): void}
     avaliable: number,
     // setAvaliable: {(newAvaliable: number): void}
-    waitlist: ProcessesItem[]
+    waitlist: {
+        processNum: number,
+        amount: number,
+    }[]
     // setWaitlist: {(newWaitlist: number[]): void}
 }

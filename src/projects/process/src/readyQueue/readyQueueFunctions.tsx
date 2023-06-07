@@ -40,10 +40,12 @@ export function removeFromReadyList({
 }
 
 export function timeout({
-    readyQueue, setReadyQueue
+    readyQueue, setReadyQueue,
+    setCurrentProcess
 }: {
     readyQueue: ReadyQueueItem[],
     setReadyQueue: (newRQ: ReadyQueueItem[]) => void
+    setCurrentProcess: (newPN: ProcessesItem) => void
 }): void{
     for(let p = readyQueue.length - 1; p >= 0 ; p--){
         const queueLen = readyQueue[p].queueItem.length
@@ -51,14 +53,27 @@ export function timeout({
             continue
         }
         if(queueLen == 1){
+            console.log(readyQueue[p].queueItem[0].processNum)
             return;
         }
         else{
             const process = readyQueue[p].queueItem.shift() as ProcessesItem
             readyQueue[p].queueItem.push(process)
             setReadyQueue([...readyQueue])
+            setCurrentProcess(readyQueue[p].queueItem[0])
+            console.log(readyQueue[p].queueItem[0].processNum)
             break;
         }
     }
+}
+
+export function topQueue(readyQueue: ReadyQueueItem[]): ProcessesItem{
+    for(let p = readyQueue.length - 1; p >= 0 ; p--){
+        if(readyQueue[p].queueItem.length != 0){
+            return readyQueue[p].queueItem[0]
+        }
+    }
+    console.log("ERROR")
+    return readyQueue[0].queueItem[0]
 }
 

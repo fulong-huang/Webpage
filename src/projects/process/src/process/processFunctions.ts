@@ -38,6 +38,27 @@ export function findAllProcessesNumber({
     return result
 }
 
+export function hasDescendant({
+    ancestor,
+    descendantNum,
+}: {
+    ancestor: ProcessesItem,
+    descendantNum: number,
+}): boolean {
+    if(ancestor.processNum === descendantNum) return true
+    const q: ProcessesItem[] = [ancestor]
+    while(q.length > 0){
+        const currentProcess = q.shift() as ProcessesItem
+        for(let i = 0; i < currentProcess.children.length; i++){
+            if(currentProcess.children[i].processNum === descendantNum){
+                return true;
+            }
+            q.push(currentProcess.children[i])
+        }
+    }
+    return false;
+}
+
 export function deleteProcess({
     processes, setProcesses,
     processNumber,

@@ -11,23 +11,16 @@ export function validateRequest({
     process: ProcessesItem,
     requestingAmount: number,
 }): boolean {
-    if(requestingAmount <= 0){
-        return false
-    }
     let totalRequestedAmount = requestingAmount
     for(let i = 0; i < process.resources.length; i++){
         if(process.resources[i].resourceNum == resourceNum){
             totalRequestedAmount += process.resources[i].holding
-            console.log("First occur")
-            console.log(totalRequestedAmount)
             break;
         }
     }
     for(let i = 0; i < resource[resourceNum].waitlist.length; i++){
         if(resource[resourceNum].waitlist[i].processNum == process.processNum){
-            console.log("Second Occur")
             totalRequestedAmount += resource[resourceNum].waitlist[i].amount
-            console.log(totalRequestedAmount)
             break;
         }
     }
@@ -47,9 +40,6 @@ export function validateRelease({
     process: ProcessesItem,
     releaseAmount: number
 }): boolean{
-    if(releaseAmount < 0){
-        return false;
-    }
     for(let i = 0; i < process.resources.length; i++){
         if(process.resources[i].resourceNum == resourceNum){
             if(process.resources[i].holding < releaseAmount){
@@ -74,13 +64,14 @@ export function requestResource({
 }) : boolean{
     let enoughResource = true;
     if(resource[resourceNum].avaliable < amountRequesting){
-        for(let i = 0; i < resource[resourceNum].waitlist.length; i++){
-            if(resource[resourceNum].waitlist[i].processNum === processNum){
-                resource[resourceNum].waitlist[i].amount += processNum
-                setResource([...resource])
-                return false;
-            }
-        }
+//        if statement should never be true
+//        for(let i = 0; i < resource[resourceNum].waitlist.length; i++){
+//            if(resource[resourceNum].waitlist[i].processNum === processNum){
+//                resource[resourceNum].waitlist[i].amount += processNum
+//                setResource([...resource])
+//                return false;
+//            }
+//        }
         resource[resourceNum].waitlist.push({
             processNum: processNum,
             amount: amountRequesting

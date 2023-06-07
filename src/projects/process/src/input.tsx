@@ -5,7 +5,7 @@ import ResourceItem from './resource/type';
 import ReadyQueueItem from './readyQueue/type';
 
 import { 
-    deleteProcess, createProcess, findAllProcessesNumber, findProcess, appendResource, releaseResourceFromProcess
+    deleteProcess, createProcess, findAllProcessesNumber, findProcess, appendResource, releaseResourceFromProcess, hasDescendant
     } from './process/processFunctions'
 
 import { addToReadyList, removeFromReadyList, timeout, topQueue } from './readyQueue/readyQueueFunctions';
@@ -53,13 +53,14 @@ export default function GetUserInput(
         }
         else if(commandsValue.length == 2){
             const arg = parseInt(commandsValue[1])
-            if(isNaN(arg)){
+            if(isNaN(arg)){ // Error error
                 // exception
                 return;
             }
             if(command === "cr"){
-                if(arg < 0 || arg >= readyQueue.length){
+                if(arg < 0 || arg >= readyQueue.length){ // Error error
                     // exception
+                    console.log("priority out of bound")
                     return;
                 }
                 const newProcess = createProcess({
@@ -81,16 +82,24 @@ export default function GetUserInput(
                 }
             }
             else if(command === "de"){
-                if(arg === 0){
+                if(arg === 0){ // Error error
                     console.log("Attempt to delete Process 0")
                     return;
+                }
+                const isDescendant = hasDescendant({
+                    ancestor: currentProcess,
+                    descendantNum: arg
+                })
+                if(!isDescendant){
+                    console.log(`Process ${currentProcess.processNum} does not have children ${arg}`)
+                    return
                 }
                 const processesToRemove = findAllProcessesNumber({
                     processes: process,
                     processNumber: arg
                 })
                 
-                if(processesToRemove.length === 0){
+                if(processesToRemove.length === 0){ // Error error
                     return;
                 }
 
@@ -122,8 +131,24 @@ export default function GetUserInput(
         else if(commandsValue.length == 3){
             const arg1 = parseInt(commandsValue[1])
             const arg2 = parseInt(commandsValue[2])
+            if(isNaN(arg1) || isNaN(arg2)){
+                console.log("Invalid Argument")
+                return;
+            }
             // TODO: filter bad input
             if(command === "rq"){
+
+                if(arg1 < 0 || arg1 >= resource.length){ // Error error
+                    console.log("Requesting resource out of bound")
+                    return
+                }
+                if(arg2 < 0 || arg2 > resource[arg1].total){ // Error error
+                    console.log("Requesting too many resources")
+                    return
+                }
+                if(currentProcess.processNum === 0){
+                    console.log("Process 0 can not request resources")
+                }
 
                 const validRequest = validateRequest({
                     resource: resource,
@@ -131,8 +156,9 @@ export default function GetUserInput(
                     process: currentProcess,
                     requestingAmount: arg2,
                 })
-                if(!validRequest){
+                if(!validRequest){ // Error error
                     console.log("Invalid Request")
+                    console.log("Total requests out of bound")
                     return
                 }
 
@@ -167,13 +193,23 @@ export default function GetUserInput(
                 //TODO
                 const arg1 = parseInt(commandsValue[1])
                 const arg2 = parseInt(commandsValue[2])
+
+                if(arg1 < 0 || arg1 >= resource.length){ // Error error
+                    console.log("Releasing resource out of bound")
+                    return
+                }
+                if(arg2 < 0 || arg2 > resource[arg1].total){ // Error error
+                    console.log("Releasing invalid amount of resources")
+                    return
+                }
+
                 const validRelease = validateRelease({
                     resourceNum: arg1,
                     releaseAmount: arg2,
                     process: currentProcess
                 })
                 if(!validRelease){
-                    console.log("Invalid Release")
+                    console.log("Releasing amount more than holding amount")
                     return;
                 }
                 releaseResourceFromProcess({

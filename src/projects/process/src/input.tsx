@@ -1,4 +1,4 @@
-import {useEffect, useState,} from 'react'
+import {useState,} from 'react'
 
 import ProcessesItem from './process/type';
 import ResourceItem from './resource/type';

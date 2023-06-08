@@ -33,8 +33,8 @@ export default function GetUserInput(
     }
 ): JSX.Element{
 
-
     const [inputCommand, setInputCommand] = useState<string>('')
+    const [message, setMessage] = useState<string>('Empty')
 
     const runCommand = (): void =>{
         const commandsValue = inputCommand.split(' ')
@@ -49,18 +49,35 @@ export default function GetUserInput(
                     setReadyQueue: setReadyQueue,
                     setCurrentProcess: setCurrentProcess
                 })
+                if(readyQueue[currentProcess.priority].queueItem.length >= 1){
+                    setMessage(`
+                        Success, set current process to 
+                        ${currentProcess.processNum}
+                    `)
+                }
+                else{
+                    setMessage(`Success, 
+                        current process is the only process with 
+                        highest priority
+                    `)
+                }
+            }
+            else{
+                setMessage("---ERROR--- Unknown Command")
             }
         }
         else if(commandsValue.length == 2){
             const arg = parseInt(commandsValue[1])
             if(isNaN(arg)){ // Error error
                 // exception
+                setMessage("---ERROR--- invalid argument, expect integer")
                 return;
             }
             if(command === "cr"){
                 if(arg < 0 || arg >= readyQueue.length){ // Error error
-                    // exception
-                    console.log("priority out of bound")
+                    setMessage(`---ERROR---
+                        priority out of bound, expect 0 to ${readyQueue.length}
+                    `)
                     return;
                 }
                 const newProcess = createProcess({
@@ -79,11 +96,20 @@ export default function GetUserInput(
                 if(newProcess.priority > currentProcess.priority){
                     setCurrentProcess(newProcess)
                     console.log(newProcess.priority)
+                    setMessage(`Success,
+                        change running process to ${newProcess.processNum}
+                    `)
+                }
+                else{
+                    setMessage(`Success, 
+                        created child ${newProcess.processNum}
+                    `)
                 }
             }
             else if(command === "de"){
                 if(arg === 0){ // Error error
                     console.log("Attempt to delete Process 0")
+                    setMessage("---ERROR--- Can not delete process 0")
                     return;
                 }
                 const isDescendant = hasDescendant({
@@ -91,7 +117,10 @@ export default function GetUserInput(
                     descendantNum: arg
                 })
                 if(!isDescendant){
-                    console.log(`Process ${currentProcess.processNum} does not have children ${arg}`)
+                    setMessage(`---ERROR---
+                        Process ${arg} is not descendent of process 
+                        ${currentProcess.processNum}
+                    `)
                     return
                 }
                 const processesToRemove = findAllProcessesNumber({
@@ -100,6 +129,10 @@ export default function GetUserInput(
                 })
                 
                 if(processesToRemove.length === 0){ // Error error
+                    // should not execute
+                    setMessage(`---UNKNOWN ERROR---
+                        Processes To Remove have length of 0
+                    `)
                     return;
                 }
 
@@ -126,6 +159,10 @@ export default function GetUserInput(
                 }
                 const topProcess = topQueue(readyQueue)
                 setCurrentProcess(topProcess)
+                setMessage(`Success, current running process ${topProcess.processNum}`)
+            }
+            else{
+                setMessage("---ERROR--- Unknown Command")
             }
         }
         else if(commandsValue.length == 3){
@@ -133,6 +170,7 @@ export default function GetUserInput(
             const arg2 = parseInt(commandsValue[2])
             if(isNaN(arg1) || isNaN(arg2)){
                 console.log("Invalid Argument")
+                setMessage("---ERROR--- invalid arguments, expect integer")
                 return;
             }
             // TODO: filter bad input
@@ -140,14 +178,26 @@ export default function GetUserInput(
 
                 if(arg1 < 0 || arg1 >= resource.length){ // Error error
                     console.log("Requesting resource out of bound")
+                    setMessage(`---ERROR---
+                        Requesting resource out of bound, 
+                        expect 0 to ${resource.length}
+                    `)
                     return
                 }
-                if(arg2 < 0 || arg2 > resource[arg1].total){ // Error error
+                if(arg2 <= 0 || arg2 > resource[arg1].total){ // Error error
                     console.log("Requesting too many resources")
+                    setMessage(`---ERROR
+                        Requesting amount invalid,
+                        expect 1 to ${resource[arg1].total}
+                    `)
                     return
                 }
                 if(currentProcess.processNum === 0){
                     console.log("Process 0 can not request resources")
+                    setMessage(`---ERROR--- 
+                        Process 0 can not request resources
+                    `)
+                    return;
                 }
 
                 const validRequest = validateRequest({
@@ -159,6 +209,10 @@ export default function GetUserInput(
                 if(!validRequest){ // Error error
                     console.log("Invalid Request")
                     console.log("Total requests out of bound")
+                    setMessage(`---Error--- 
+                        Holding amount + requesting amoung larger than
+                        total amount of resources
+                    `)
                     return
                 }
 
@@ -178,6 +232,11 @@ export default function GetUserInput(
                     })
                     const topProcess = topQueue(readyQueue)
                     setCurrentProcess(topProcess)
+                    setMessage(`Success, 
+                        Insufficient avaliable amount,
+                        placed process onto resource waitlist,
+                        change running process to ${topProcess.processNum}
+                    `)
                 }
                 else{
                     appendResource({
@@ -187,19 +246,30 @@ export default function GetUserInput(
                         resourceNum: arg1,
                         amountRequested: arg2
                     })
+                    setMessage(`Success,
+                        Process now holding requested resource
+                    `)
                 }
             }
             else if(command === "rl"){
                 //TODO
-                const arg1 = parseInt(commandsValue[1])
-                const arg2 = parseInt(commandsValue[2])
+//                const arg1 = parseInt(commandsValue[1])
+//                const arg2 = parseInt(commandsValue[2])
 
                 if(arg1 < 0 || arg1 >= resource.length){ // Error error
                     console.log("Releasing resource out of bound")
+                    setMessage(`---ERROR---
+                        Releasing resource out of bound, 
+                        expect 0 to ${resource.length}
+                    `)
                     return
                 }
-                if(arg2 < 0 || arg2 > resource[arg1].total){ // Error error
+                if(arg2 <= 0 || arg2 > resource[arg1].total){ // Error error
                     console.log("Releasing invalid amount of resources")
+                    setMessage(`---ERROR
+                        Releasing amount invalid,
+                        expect 1 to ${resource[arg1].total}
+                    `)
                     return
                 }
 
@@ -210,6 +280,9 @@ export default function GetUserInput(
                 })
                 if(!validRelease){
                     console.log("Releasing amount more than holding amount")
+                    setMessage(`---ERROR---
+                        Release resource amount larger than holding amount
+                    `)
                     return;
                 }
                 releaseResourceFromProcess({
@@ -245,22 +318,30 @@ export default function GetUserInput(
                         }) as ProcessesItem
                     })
                 }
-
+                const topProcess = topQueue(readyQueue)
+                if(topProcess.priority > currentProcess.priority){
+                    setMessage(`Success,
+                        freed process with higher priority,
+                        change current process to ${topProcess.priority}
+                    `)
+                    setCurrentProcess(topProcess)
+                }
+                else{
+                    setMessage(`Success,
+                        freed resources
+                    `)
+                }
             }
         }
     }
 
-    //TODO
-    useEffect(()=>{
-        setProcess(process)
-        setResource(resource)
-        setReadyQueue(readyQueue)
-    },[])
 
     return (
         <>
         <input onChange={(e) => {setInputCommand(e.target.value)}}/>
         <button onClick={()=>{runCommand()}}> submit </button>
+        <p>Message: </p>
+        <p>{message} </p>
         </>
     )
 }

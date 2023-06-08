@@ -10,6 +10,7 @@ import './processNresource.css'
 import {Settings} from './src/setting.tsx'
 
 import GetUserInput from './src/input.tsx'
+import HelpPage from './src/helpPage.tsx'
 
 export default function ProcessNResource(): JSX.Element{
     useEffect(()=>{
@@ -63,8 +64,10 @@ export default function ProcessNResource(): JSX.Element{
         <>
         {/* Processes */}
         <h3><br/><br/>In Construction, come back later <br/><br/></h3>
+        <HelpPage />
         {/* Setting page: */}
         <div>
+            <br/>
             {<Settings 
                 setQueue={setQueue} 
                 setProcesses={setProcesses} 
@@ -75,6 +78,9 @@ export default function ProcessNResource(): JSX.Element{
             />}
         </div>
         <div>
+            <br/>
+            <h1> Commands: </h1>
+            <h3> Current Running Process: {currentProcess.processNum} </h3>
             <GetUserInput process={processes} setProcess={setProcesses} 
                         readyQueue={queue} setReadyQueue={setQueue}
                         resource={resources} setResource={setResources}
@@ -82,6 +88,7 @@ export default function ProcessNResource(): JSX.Element{
                         processCount={processCount} setProcessCount={setProcessCount}
                         />
         </div>
+            <br/>
         {/* Tables: */}
         {/*<div style={{display:'flex', flexWrap:'wrap', alignItems:'center',  margin: '50px'}}>*/}
         <div className="main-content-container">

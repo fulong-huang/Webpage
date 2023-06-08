@@ -139,7 +139,9 @@ const ResourceManager = ({inputData, resources, setResources}:
 
     return (
         <>
-        <p>Start</p>
+            <br/>
+            <br/>
+        <h3>Resource Amount: </h3>
         {
             inputData.map((_, index) => (
                 <div key={'resource_' + index}>
@@ -152,8 +154,7 @@ const ResourceManager = ({inputData, resources, setResources}:
                 </div>
             ))
         }
-        <button onClick={onClick}> button </button>
-        <p>End</p>
+        <button onClick={onClick}> Confirm </button>
         </>
     )
 }
@@ -178,6 +179,9 @@ export const Settings = (
     // ********************* Process **********************
     return (
         <>
+        <h1> [Setting] </h1>
+            <br/>
+        <h3> Set Size: </h3>
         <p> set Queue Size: 
             <input type='number' placeholder='3' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
         </p>

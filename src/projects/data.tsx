@@ -98,7 +98,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Processes',
     },
     { // Construction
-        img             : '/process.png',
+        img             : 'Scheduler.png',
         title           : `
             Run and Borrow (Constructing)
         `,

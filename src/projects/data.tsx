@@ -82,16 +82,17 @@ export const projectData : dataContainer[] = [
     { // Construction
         img             : '/process.png',
         title           : `
-            Run and Borrow (C++ version)
+            Scheduler (C++ version)
         `,
         description     : [
             `
                 C++
             `,
             `
-                Simulation for processes that ask for resources.
-                only one processes run at a time,
-                can timeout to run the next process in same priority. 
+                Simulation for process scheduler.
+                Request resource exceed avaliable resources will put process
+                onto waitlist, 
+                until resources are free to assign.
             `,
         ],
         overlay         : 'Visit Github Page',
@@ -100,7 +101,7 @@ export const projectData : dataContainer[] = [
     { // Construction
         img             : 'Scheduler.png',
         title           : `
-            Run and Borrow (Constructing)
+            Scheduler (Web version)\n NOT FINISHED
         `,
         description     : [
             `
@@ -108,8 +109,9 @@ export const projectData : dataContainer[] = [
             `,
             `
                 Similar to previous project, 
-                but using TypeScript and React for web page version
-                with visual representation.
+                with increased customization while using TypeScript and React
+                for better visualization, and to gain more indept knowledge
+                of the tools.
             `,
         ],
         overlay         : 'View Project (Constructing)',

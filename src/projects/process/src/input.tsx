@@ -186,7 +186,7 @@ export default function GetUserInput(
                 }
                 if(arg2 <= 0 || arg2 > resource[arg1].total){ // Error error
                     console.log("Requesting too many resources")
-                    setMessage(`---ERROR
+                    setMessage(`---ERROR---
                         Requesting amount invalid,
                         expect 1 to ${resource[arg1].total}
                     `)
@@ -209,7 +209,7 @@ export default function GetUserInput(
                 if(!validRequest){ // Error error
                     console.log("Invalid Request")
                     console.log("Total requests out of bound")
-                    setMessage(`---Error--- 
+                    setMessage(`---ERROR--- 
                         Holding amount + requesting amoung larger than
                         total amount of resources
                     `)
@@ -266,7 +266,7 @@ export default function GetUserInput(
                 }
                 if(arg2 <= 0 || arg2 > resource[arg1].total){ // Error error
                     console.log("Releasing invalid amount of resources")
-                    setMessage(`---ERROR
+                    setMessage(`---ERROR---
                         Releasing amount invalid,
                         expect 1 to ${resource[arg1].total}
                     `)

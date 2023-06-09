@@ -3,6 +3,7 @@ import ResourceItem from "./resource/type";
 import ReadyQueueItem from './readyQueue/type';
 import ProcessesItem from "./process/type";
 
+import './setting.css'
 
 const ChangeButton = (
     {
@@ -60,7 +61,7 @@ const ChangeButton = (
         if(resourceSize <= resource.length){
             setResource(resource.slice(0, resourceSize));
             setInputData(inputData.slice(0, resourceSize));
-//            return;
+            return;
         }
         
         const newInputData = [...inputData]
@@ -72,7 +73,7 @@ const ChangeButton = (
         }
         for(let i = resource.length; i< resourceSize; i++){
             const item: ResourceItem = {
-                resourceNum: i + 1,
+                resourceNum: i ,
                 total: 3, 
                 avaliable: 3, 
                 waitlist: [],
@@ -105,7 +106,7 @@ const ChangeButton = (
     }
     return (
         <>
-        <button onClick={changeAllSize}>Submit</button>    
+        <button className='setting-confirm-button' onClick={changeAllSize}>Confirm</button>    
         </>
     )
 }
@@ -142,11 +143,14 @@ const ResourceManager = ({inputData, resources, setResources}:
             <br/>
             <br/>
         <h3>Resource Amount: </h3>
+        <div className='set-resource-amount'>
         {
             inputData.map((_, index) => (
                 <div key={'resource_' + index}>
-                    #{index}: 
+                    #{index}:{index>9? '':' '}&nbsp;{index>9? '':' '}
+
                     <input 
+                        className='setting-input-bar'
                         key={'resource_' + index} 
                         type='number' 
                         placeholder={inputData[index].toString()}
@@ -154,7 +158,8 @@ const ResourceManager = ({inputData, resources, setResources}:
                 </div>
             ))
         }
-        <button onClick={onClick}> Confirm </button>
+        </div>
+        <button className='setting-confirm-button' onClick={onClick}> Confirm </button>
         </>
     )
 }
@@ -176,33 +181,42 @@ export const Settings = (
     const [resourceSize, setResourceSize] = useState<number>(3);
     const [inputData, setInputData] = useState<number[]>([3,3,3]);
 
+    const [settingShow, setSettingShow] = useState<boolean>(true);
+
     // ********************* Process **********************
     return (
         <>
-        <h1> [Setting] </h1>
-            <br/>
-        <h3> Set Size: </h3>
-        <p> set Queue Size: 
-            <input type='number' placeholder='3' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
-        </p>
-{/*
-        <p> set Process Size: 
-            <input type='number' placeholder='0: should not exist'  onChange={(e) => {setProcessSize(parseInt(e.target.value))}} />
-        </p>
-*/}
-        <p> set Resource Size:
-            <input type='number' placeholder='3' onChange={(e) => {setResourceSize(parseInt(e.target.value))}} />
-        </p>
-        <ChangeButton setQueue={setQueue} queueSize={queueSize} 
-            setProcess={setProcesses}
-            setResource={setResource} resourceSize={resourceSize}
-            inputData={inputData} setInputData={setInputData}
-            resource={resource}
-            setCurrentProcess={setCurrentProcess}
-            setProcessCount={setProcessCount}
-        />
+        <div className='setting-page'>
+        <h1 className='setting-page-title'> 
+            Setting &nbsp;
+            <button className='setting-button' onClick={()=>{setSettingShow(!settingShow)}}> ({settingShow? 'hide':'show'}) </button> 
+        </h1>
+        
+        {settingShow && (
+        <div className='setting-items'>
+            <h3> Set Size: </h3>
+            <div className='set-sizes'>
+                <p> set Queue Size: 
+                    <input className='setting-input-bar' type='number' placeholder='3' onChange={(e) => {setQueueSize(parseInt(e.target.value))}} />
+                </p>
+                <p> set Resource Size:
+                    <input className='setting-input-bar' type='number' placeholder='3' onChange={(e) => {setResourceSize(parseInt(e.target.value))}} />
+                </p>
+            </div>
+                <ChangeButton setQueue={setQueue} queueSize={queueSize} 
+                    setProcess={setProcesses}
+                    setResource={setResource} resourceSize={resourceSize}
+                    inputData={inputData} setInputData={setInputData}
+                    resource={resource}
+                    setCurrentProcess={setCurrentProcess}
+                    setProcessCount={setProcessCount}
+                />
 
-        <ResourceManager inputData={inputData} resources={resource} setResources={setResource} />
+            <ResourceManager inputData={inputData} resources={resource} setResources={setResource} />
+        </div>
+        )}
+
+        </div>
         </>
     )
     

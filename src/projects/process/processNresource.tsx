@@ -62,12 +62,13 @@ export default function ProcessNResource(): JSX.Element{
 
     return (
         <>
+        <p className='scheduler'>
+            Scheduler
+        </p>
         {/* Processes */}
-        <h3><br/><br/>In Construction, come back later <br/><br/></h3>
         <HelpPage />
         {/* Setting page: */}
-        <div>
-            <br/>
+        <div className='setting-container'>
             {<Settings 
                 setQueue={setQueue} 
                 setProcesses={setProcesses} 
@@ -77,10 +78,8 @@ export default function ProcessNResource(): JSX.Element{
                 setProcessCount = {setProcessCount}
             />}
         </div>
-        <div>
-            <br/>
-            <h1> Commands: </h1>
-            <h3> Current Running Process: {currentProcess.processNum} </h3>
+        <div className='user-commands'>
+            <h1 style={{textAlign: 'center'}}> Commands: </h1>
             <GetUserInput process={processes} setProcess={setProcesses} 
                         readyQueue={queue} setReadyQueue={setQueue}
                         resource={resources} setResource={setResources}
@@ -88,7 +87,6 @@ export default function ProcessNResource(): JSX.Element{
                         processCount={processCount} setProcessCount={setProcessCount}
                         />
         </div>
-            <br/>
         {/* Tables: */}
         {/*<div style={{display:'flex', flexWrap:'wrap', alignItems:'center',  margin: '50px'}}>*/}
         <div className="main-content-container">

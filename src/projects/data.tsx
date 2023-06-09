@@ -101,7 +101,7 @@ export const projectData : dataContainer[] = [
     { // Construction
         img             : 'Scheduler.png',
         title           : `
-            Scheduler (Web version)\n NOT FINISHED
+            Scheduler (Web version)
         `,
         description     : [
             `
@@ -114,7 +114,7 @@ export const projectData : dataContainer[] = [
                 of the tools.
             `,
         ],
-        overlay         : 'View Project (Constructing)',
+        overlay         : 'View Project',
         link            : 'process'
     }
 ];

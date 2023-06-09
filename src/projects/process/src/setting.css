@@ -1,0 +1,49 @@
+.setting-page{
+    width: 550px;
+    margin: auto;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.setting-page-title{
+    margin: auto;
+    text-align: center;
+}
+
+.setting-button{
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+}
+
+.setting-items{
+    padding-left: 20px;
+}
+
+.set-sizes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.setting-input-bar{
+    width: 120px;
+}
+
+.setting-confirm-button{
+    margin-top: 5px;
+}
+
+.set-resource-amount{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 5px;
+}
+
+.setting-button:hover{
+    cursor: pointer;
+}
+
+

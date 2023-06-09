@@ -340,6 +340,7 @@ export default function GetUserInput(
         <>
         <input onChange={(e) => {setInputCommand(e.target.value)}}/>
         <button onClick={()=>{runCommand()}}> submit </button>
+        <h2> Current Running Process: {currentProcess.processNum} </h2>
         <p>Message: </p>
         <p>{message} </p>
         </>

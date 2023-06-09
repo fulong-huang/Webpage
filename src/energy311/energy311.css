@@ -1,0 +1,87 @@
+.Energy311-page{
+    text-align: center;
+    
+    font-weight: bold;
+    font-size: 60px;
+    color: rgb(0, 155, 203);
+    margin-top: 65px;
+}
+
+
+.formLabel{
+    height: 60px;
+    padding: 0 15px;
+    font-size: 25px;
+    min-width: 280px;
+    margin: 0 15vw;
+    width: 70vw;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: -25px;
+    color: rbg(0, 155, 203);
+}
+
+#name, #address, #zip, #phone, #email{
+    height: 60px;
+    border: 6px solid rgb(0, 155, 203);
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 25px;
+    min-width: 280px;
+    margin: 0 15vw;
+    width: 70vw;
+    display: block;
+}
+
+
+#submit{
+    height: 60px;
+    border: 6px solid rgb(39, 123, 212);
+    border-radius: 15px;
+    padding: 0 15px;
+    font-size: 25px;
+    margin-left: calc(85vw - 120px);
+    width: 120px;
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: rgba(0, 156, 203, 0.7);
+    transition: box-shadow background-color 0.2s;
+    cursor: pointer;
+    margin-bottom: 150px;
+}
+
+#submit:hover{
+    box-shadow: 6px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 156, 203, 1);
+}
+
+#submit:active{
+    background-color: rgba(0, 156, 203, 0.4);
+}
+
+
+.loader{
+    /* height: 60px;
+    width: 120px; */
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin-left: 21px;
+    margin-top: -6px;
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading{
+    color: transparent;
+    display: block;
+}

@@ -29,15 +29,20 @@ const Energy311Form: React.FC = () => {
         if(loading) return;
         try{
             setLoading(true);
+//            await new Promise<void>((resolve) => {
+//                setTimeout(() => {
+//                    resolve();
+//                }, 1000);
+//              });
             const response = await fetch(
                 'https://energy311dev.appspot.com/a/building', 
                 {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(contactFormData),
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(contactFormData),
                 }
             );
             const data = await response.json();
@@ -52,6 +57,7 @@ ERROR, something bad happened \n
 Form failed to send.
 `);
         }
+        console.log("Set Loading false")
         setLoading(false);
     }
 
@@ -69,24 +75,24 @@ Form failed to send.
     return(
     <form onSubmit={handleSubmit} method='POST'>
         <label className='formLabel' htmlFor='name'>*Building Name:  </label>
-        <input type='text' name='building_name' id='name' required onChange={handleInputChange}/>
+        <input type='text' name='building_name' className='energy311-item' required onChange={handleInputChange}/>
 
         <label className='formLabel' htmlFor='address'>*Company Address:  </label>
-        <input type='text' name='address' id='address'  required onChange={handleInputChange}/>
+        <input type='text' name='address' className="energy311-item"  required onChange={handleInputChange}/>
 
         <label  className='formLabel' htmlFor='name'>*Company Zipcode:  </label>
-        <input type='number' name='zip' id='zip'  required onChange={handleInputChange}/>
+        <input type='number' name='zip' className="energy311-item" required onChange={handleInputChange}/>
 
         <label className='formLabel'  htmlFor='name'>*Phone: (###) ###-#### </label>
-        <input type='tel' name='phone' id='phone' pattern='^\(\d{3}\)\s\d{3}-\d{4}' required onChange={handleInputChange}/>
+        <input type='tel' name='phone' pattern='^\(\d{3}\)\s\d{3}-\d{4}' className='energy311-item' required onChange={handleInputChange}/>
 
         <label className='formLabel'  htmlFor='name'>*Email:  </label>
-        <input type='email' name='email' id='email' required onChange={handleInputChange}/>
+        <input type='email' name='email' className="energy311-item" required onChange={handleInputChange}/>
 
         <input type='hidden' name='_next' value='./'/>
 
-        <button type='submit' id='submit' className={`${loading? 'loading':''}`}> 
-            <div className={`loader ${loading? 'loading':''}`}></div>
+        <button type='submit' id='energy311-submit' className={`energy311-submit ${loading? 'energy311-loading':''}`}> 
+            <div className={`energy311-loader ${loading? 'energy311-loading':''}`}></div>
             Send 
         </button> 
     

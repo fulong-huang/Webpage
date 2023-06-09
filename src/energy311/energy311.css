@@ -21,7 +21,7 @@
     color: rbg(0, 155, 203);
 }
 
-#name, #address, #zip, #phone, #email{
+.energy311-item{
     height: 60px;
     border: 6px solid rgb(0, 155, 203);
     border-radius: 15px;
@@ -34,7 +34,7 @@
 }
 
 
-#submit{
+#energy311-submit{
     height: 60px;
     border: 6px solid rgb(39, 123, 212);
     border-radius: 15px;
@@ -51,17 +51,17 @@
     margin-bottom: 150px;
 }
 
-#submit:hover{
+#energy311-submit:hover{
     box-shadow: 6px 4px 15px rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 156, 203, 1);
 }
 
-#submit:active{
+#energy311-submit:active{
     background-color: rgba(0, 156, 203, 0.4);
 }
 
 
-.loader{
+.energy311-loader{
     /* height: 60px;
     width: 120px; */
     height: 40px;
@@ -76,12 +76,7 @@
     display: none;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.loading{
+.energy311-loading{
     color: transparent;
     display: block;
 }

@@ -10,7 +10,7 @@ import './processNresource.css'
 import {Settings} from './src/setting.tsx'
 
 import GetUserInput from './src/input.tsx'
-import HelpPage from './src/helpPage.tsx'
+import HelpPage from './src/helpPage/helpPage.tsx'
 
 export default function ProcessNResource(): JSX.Element{
     useEffect(()=>{

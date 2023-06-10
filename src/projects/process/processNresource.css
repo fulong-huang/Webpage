@@ -82,5 +82,8 @@
     .scheduler-container{
         zoom: 0.3;
     }
+    .main-content-container{
+        grid-template-columns: 600px;
+    }
 }
 

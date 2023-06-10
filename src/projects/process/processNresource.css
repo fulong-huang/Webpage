@@ -80,6 +80,7 @@
 
 @media (max-width: 700px){
     div{
+        zoom: 0.8;
     }
 }
 

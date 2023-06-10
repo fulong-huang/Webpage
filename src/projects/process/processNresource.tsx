@@ -62,6 +62,7 @@ export default function ProcessNResource(): JSX.Element{
 
     return (
         <>
+        <div className='scheduler-container'>
         <p className='scheduler'>
             Scheduler
         </p>
@@ -99,6 +100,7 @@ export default function ProcessNResource(): JSX.Element{
             </div>
 
         </div>
+       </div>
        </>
     );
 }

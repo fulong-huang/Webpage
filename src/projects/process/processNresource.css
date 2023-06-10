@@ -79,7 +79,7 @@
 
 
 @media (max-width: 700px){
-    div{
+    .scheduler-container{
         zoom: 0.8;
     }
 }

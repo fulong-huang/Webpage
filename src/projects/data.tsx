@@ -116,7 +116,25 @@ export const projectData : dataContainer[] = [
         ],
         overlay         : 'View Project',
         link            : 'process'
-    }
+    },
+    { // Chess
+        img             : '/Chess.png',
+        title           : `
+            Chess <br /> (Currently Building)
+        `,
+        description     : [
+            `
+                C++, CMake, TDD
+            `,
+            `
+                Chess game written in C++, 
+                seeking to gain experience with Test Driven Development. 
+                Plan to use tools such as SFML for the UI in later stages.
+            `,
+        ],
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/Chess',
+    },
 ];
 
 

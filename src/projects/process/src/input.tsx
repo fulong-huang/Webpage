@@ -43,7 +43,7 @@ export default function GetUserInput(
         }
         const command = commandsValue[0];
         if(commandsValue.length == 1){
-            if(command === "to"){
+            if(command.toLowerCase() === "to"){
                 timeout({
                     readyQueue: readyQueue,
                     setReadyQueue: setReadyQueue,
@@ -73,7 +73,7 @@ export default function GetUserInput(
                 setMessage("---ERROR--- invalid argument, expect integer")
                 return;
             }
-            if(command === "cr"){
+            if(command.toLowerCase() === "cr"){
                 if(arg < 0 || arg >= readyQueue.length){ // Error error
                     setMessage(`---ERROR---
                         priority out of bound, expect 0 to ${readyQueue.length}
@@ -106,7 +106,7 @@ export default function GetUserInput(
                     `)
                 }
             }
-            else if(command === "de"){
+            else if(command.toLowerCase() === "de"){
                 if(arg === 0){ // Error error
                     console.log("Attempt to delete Process 0")
                     setMessage("---ERROR--- Can not delete process 0")
@@ -174,7 +174,7 @@ export default function GetUserInput(
                 return;
             }
             // TODO: filter bad input
-            if(command === "rq"){
+            if(command.toLowerCase() === "rq"){
 
                 if(arg1 < 0 || arg1 >= resource.length){ // Error error
                     console.log("Requesting resource out of bound")
@@ -251,7 +251,7 @@ export default function GetUserInput(
                     `)
                 }
             }
-            else if(command === "rl"){
+            else if(command.toLowerCase() === "rl"){
                 //TODO
 //                const arg1 = parseInt(commandsValue[1])
 //                const arg2 = parseInt(commandsValue[2])

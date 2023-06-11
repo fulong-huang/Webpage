@@ -120,7 +120,7 @@ export const projectData : dataContainer[] = [
     { // Chess
         img             : '/Chess.png',
         title           : `
-            Chess <br /> (Currently Building)
+            Chess  (Currently Building)
         `,
         description     : [
             `

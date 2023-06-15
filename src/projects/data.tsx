@@ -128,8 +128,8 @@ export const projectData : dataContainer[] = [
             `,
             `
                 Chess game written in C++, 
-                seeking to gain experience with Test Driven Development. 
-                Plan to use tools such as SFML for the UI in later stages.
+                Full function were build with Test-Driven Development (TDD),
+                Learning SFML and working on the visuals.
             `,
         ],
         overlay         : 'Visit Github Page',

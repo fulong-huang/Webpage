@@ -128,8 +128,8 @@ export const projectData : dataContainer[] = [
             `,
             `
                 Chess game written in C++, 
-                Full function were build with Test-Driven Development (TDD),
-                Learning SFML and working on the visuals.
+                All movements except for pawn promote were build.
+                Working on UI using SFML.
             `,
         ],
         overlay         : 'Visit Github Page',

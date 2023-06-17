@@ -127,8 +127,7 @@ export const projectData : dataContainer[] = [
                 C++, CMake, TDD
             `,
             `
-                Chess game written in C++, 
-                All movements except for pawn promote were build.
+                Chess game written in C++.
                 Working on UI using SFML.
             `,
         ],

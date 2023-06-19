@@ -138,7 +138,7 @@ export const projectData : dataContainer[] = [
         img             : '/Chess.png',
         title           : 
             `
-                Chess with Friend
+                Chess with Friend [Currently Working On]
             `,
         description     : [
             `
@@ -146,7 +146,6 @@ export const projectData : dataContainer[] = [
             `,
             `
                 Game of chess, allow connection via web.
-                (Currnetly Building).
             `
         ],
         overlay         : 'Visit Github Page',

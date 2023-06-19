@@ -120,19 +120,37 @@ export const projectData : dataContainer[] = [
     { // Chess
         img             : '/Chess.png',
         title           : `
-            Chess  (Currently Building)
+            Chess
         `,
         description     : [
             `
                 C++, CMake, TDD
             `,
             `
-                Chess game written in C++.
-                Working on UI using SFML.
+                Chess game written in C++,
+                UI made with SFML.
             `,
         ],
         overlay         : 'Visit Github Page',
         link            : 'https://github.com/fulong-huang/Chess',
+    },
+    {
+        img             : '/Chess.png',
+        title           : 
+            `
+                Chess with Friend
+            `,
+        description     : [
+            `
+                C++, CMake, (multi-thread, server-client connection)
+            `,
+            `
+                Game of chess, allow connection via web.
+                (Currnetly Building).
+            `
+        ],
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/Chess_Online',
     },
 ];
 

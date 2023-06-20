@@ -138,20 +138,19 @@ export const projectData : dataContainer[] = [
         img             : '/Chess.png',
         title           : 
             `
-                Chess with Friend [Postponed]
+                Chess with Friend [Starting Jun-21]
             `,
         description     : [
             `
-                Multi-thread, [C++ or TypeScript]
+                C++, CMake, Multi-thread, socket
             `,
             `
                 Game of chess, 
-                allow connection via web to play with friends.
-                [Learning more about network programming before I start.]
+                allow user to host server to play with friend.
             `
         ],
-        overlay         : 'Not Avaliable',
-        link            : '',
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/Chess_Online',
     },
 ];
 

@@ -15,7 +15,7 @@ const item4List: string[] = [
 
 const body: string[] = [
     `
-    As an incoming graduate student majoring in Computer Science, 
+    As an graduating student majoring in Computer Science, 
     I am passionate about programming and eager to learn new technologies. 
     Throughout my journey, I've developed numerous projects to help me 
     better understand the technologies I was learning, 

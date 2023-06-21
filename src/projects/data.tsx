@@ -81,8 +81,8 @@ export const projectData : dataContainer[] = [
                 output DOT language files for SSA form Intermediate Representation 
             `,
         ],
-        overlay         : 'Watch DEMO',
-        link            : 'https://youtu.be/nKmsC9gf2Bg',
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/Compiler',
     },
     { // Construction
         img             : '/process.png',

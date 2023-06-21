@@ -12,7 +12,17 @@ function createProjectItem(data: dataContainer, index: number): JSX.Element{
                 <Link to={data.link} className='overlay'>{data.overlay}</Link> 
             }
             <img src={data.img} className='project-image' />
-            <h1 className='project-title'>{data.title}</h1>
+            <h1 className='project-title'>{data.title}
+            {
+                data.date != "" && (<>
+                    <br />
+                    [{data.date}]
+                </>) ||
+                (<> 
+                    <br />
+                    [Undated]
+                </>)
+            }</h1>
             <p className='project-description'>{data.description[0]}</p>
             <p className='project-description'>{data.description[1]}</p>
         </li>

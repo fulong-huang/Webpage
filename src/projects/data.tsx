@@ -3,6 +3,7 @@
 export type dataContainer = {
     img         : string,
     title       : string,
+    date        : string,
     description : string[],
     overlay     : string,
     link        : string,
@@ -12,8 +13,9 @@ export const projectData : dataContainer[] = [
     { // Website
         img             : '/webpage.png',
         title           : `
-            Personal Website
+            Personal Website 
         `,
+        date            : "Apr 26 - May 2",
         description     : [
             `
                 TypeScript, React, HTML, CSS
@@ -32,6 +34,7 @@ export const projectData : dataContainer[] = [
         title           : `
             Rubik's Cube
         `,
+        date            : "",
         description     : [
             `
                 Unity, C#
@@ -49,6 +52,7 @@ export const projectData : dataContainer[] = [
         title           : `
             Tetris
         `,
+        date            : "Apr 10 - Apr 12",
         description     :[
             `
                 JavaScript, HTML, CSS
@@ -67,6 +71,7 @@ export const projectData : dataContainer[] = [
         title           : `
             Static-Single Assignment IR Diagram
         `,
+        date            : "",
         description     : [
             `
                 C++, Compiler, DOT
@@ -84,6 +89,7 @@ export const projectData : dataContainer[] = [
         title           : `
             Scheduler (C++ version)
         `,
+        date            : "",
         description     : [
             `
                 C++
@@ -103,6 +109,7 @@ export const projectData : dataContainer[] = [
         title           : `
             Scheduler (Web version)
         `,
+        date            : "May 7 - Jun 9",
         description     : [
             `
                 TypeScript, React
@@ -122,6 +129,7 @@ export const projectData : dataContainer[] = [
         title           : `
             Chess
         `,
+        date            : "Jun 10 - Jun 18",
         description     : [
             `
                 C++, CMake, TDD
@@ -138,8 +146,9 @@ export const projectData : dataContainer[] = [
         img             : '/Chess.png',
         title           : 
             `
-                Chess with Friend [Starting Jun-21]
+                Chess with Friend 
             `,
+        date            : "Jun 21 - Present",
         description     : [
             `
                 C++, CMake, Multi-thread, socket

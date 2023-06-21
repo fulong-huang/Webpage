@@ -15,12 +15,16 @@ const item4List: string[] = [
 
 const body: string[] = [
     `
-    As a graduating student majoring in Computer Science, 
-    I am passionate about programming and eager to learn new technologies. 
-    Throughout my journey, I've developed numerous projects to help me 
-    better understand the technologies I was learning, 
-    and also to help me find out what I do not know, 
-    while enjoying the process of solving complex problems that arise along the way.
+    As a graduated student majoring in Computer Science,
+    I am passionate about programming and eager to learn new technologies.
+    Throughout my journey,
+    I have developed numerous projects to help me better understand 
+    new technologies since I believe building projects with 
+    minimum support is the most effective way to learn.
+    I enjoy the process of solving complex problems 
+    that arise along the way,
+    as it allows me to discover areas 
+    where I need further knowledge and expertise.
     `,
 
     `

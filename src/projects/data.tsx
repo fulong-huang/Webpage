@@ -146,16 +146,18 @@ export const projectData : dataContainer[] = [
         img             : '/Chess.png',
         title           : 
             `
-                Chess with Friend 
+                Chess with Friends
             `,
         date            : "Jun 21 - Present",
         description     : [
             `
-                C++, CMake, Multi-thread, socket
+                C++, CMake, Multi-thread, Socket
             `,
             `
-                Game of chess, 
-                allow user to host server to play with friend.
+                Game of chess,
+                allow multiple client connections through socket.
+                Server will run game (no graphic) and 
+                validate all client commands.
             `
         ],
         overlay         : 'Visit Github Page',

@@ -143,7 +143,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Chess',
     },
     {
-        img             : '/Chess.png',
+        img             : '/Chess_Online.png',
         title           : 
             `
                 Chess with Friends
@@ -155,9 +155,9 @@ export const projectData : dataContainer[] = [
             `,
             `
                 Game of chess,
-                allow multiple client connections through socket.
-                Server will run game (no graphic) and 
-                validate all client commands.
+                allow multiple players connect through socket.
+                All players can move the board at the same time.
+                Server will validate all client inputs.
             `
         ],
         overlay         : 'Visit Github Page',

@@ -148,7 +148,7 @@ export const projectData : dataContainer[] = [
             `
                 Chess with Friends
             `,
-        date            : "Jun 21 - Present",
+        date            : "Jun 21 - July 5",
         description     : [
             `
                 C++, CMake, Multi-thread, Socket
@@ -157,7 +157,7 @@ export const projectData : dataContainer[] = [
                 Game of chess,
                 allow multiple players connect through socket.
                 All players can move the board at the same time.
-                Server will validate all client inputs.
+                Server will validate client inputs before proceed.
             `
         ],
         overlay         : 'Visit Github Page',

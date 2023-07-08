@@ -1,5 +1,5 @@
 // import React, { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import Nav from './nav.tsx'
 import './App.css'
@@ -10,7 +10,6 @@ import Contact from './contact/contact.tsx'
 import Misc from './misc/misc.tsx'
 import Process from './projects/process/processNresource.tsx'
 import { Analytics } from '@vercel/analytics/react'
-import Energy311 from './energy311/energy311.tsx'
 
 function App(): JSX.Element {
 
@@ -25,7 +24,7 @@ function App(): JSX.Element {
         </Route>
         <Route path='/contact' element={<Contact />} />
         <Route path='/misc' element={<Misc />} />
-        <Route path='/energy311' element={<Energy311 />} />
+        <Route path='*' element= {<Navigate to='/projects' />} />
       </Routes>
       <Analytics />
     </>

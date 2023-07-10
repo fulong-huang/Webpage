@@ -5,7 +5,9 @@ import {projectData, dataContainer} from './data'
 
 function createProjectItem(data: dataContainer, index: number): JSX.Element{
     return(
-        <li className='project-item' key={`projectItem_${index}`}>
+        <li className='project-item'
+            style={{backgroundColor: data.bgColor}}
+        key={`projectItem_${index}`}>
             {
                 data.link.startsWith('https')?
                 <a href={data.link} target='_blank' className='overlay'>{data.overlay}</a> :

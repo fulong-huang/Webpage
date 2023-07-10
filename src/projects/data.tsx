@@ -1,6 +1,7 @@
 // import React from 'react';
 
 export type dataContainer = {
+    bgColor     : string,
     img         : string,
     title       : string,
     date        : string,
@@ -11,6 +12,7 @@ export type dataContainer = {
 
 export const projectData : dataContainer[] = [
     { // Website
+        bgColor         : 'rgb(80, 150, 230)',
         img             : '/webpage.png',
         title           : `
             Personal Website 
@@ -30,6 +32,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Webpage',
     },
     { // Cube
+        bgColor         : 'rgb(20, 231, 242)',
         img             : '/cube.png',
         title           : `
             Rubik's Cube
@@ -48,6 +51,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://play.unity.com/mg/other/webgl-builds-327523',
     },
     { // Tetris
+        bgColor         : 'rgb(0, 180, 180)',
         img             : '/Tetris.png',
         title           : `
             Tetris
@@ -67,6 +71,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://fhuang-tetris.netlify.app/',
     },
     { // SSA
+        bgColor         : 'rgb(250 150 80)',
         img             : '/IR_Diagram.png',
         title           : `
             Static-Single Assignment IR Diagram
@@ -85,6 +90,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Compiler',
     },
     { // Construction
+        bgColor         : 'rgb(250 100 130)',
         img             : '/process.png',
         title           : `
             Scheduler (C++ version)
@@ -105,6 +111,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Processes',
     },
     { // Construction
+        bgColor         : 'rgb(250 100 130)',
         img             : 'Scheduler.png',
         title           : `
             Scheduler (Web version)
@@ -125,6 +132,7 @@ export const projectData : dataContainer[] = [
         link            : 'process'
     },
     { // Chess
+        bgColor         : 'rgb(250 180 80)',
         img             : '/Chess.png',
         title           : `
             Chess
@@ -143,6 +151,7 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/Chess',
     },
     {
+        bgColor         : 'rgb(250 180 80)',
         img             : '/Chess_Online.png',
         title           : 
             `
@@ -162,6 +171,28 @@ export const projectData : dataContainer[] = [
         ],
         overlay         : 'Visit Github Page',
         link            : 'https://github.com/fulong-huang/Chess_Online',
+    },
+    {
+        bgColor         : 'rgb(250 180 80)',
+        img             : '/Current.png',
+        title           : 
+            `
+                Party Chess on Browser
+            `,
+        date            : "Not Started",
+        description     : [
+            `
+            `,
+            `
+                Gathering information to build Chess with Friends, 
+                it will ran in browser rather than
+                asking users to download the game,
+                which makes it more accessible and 
+                eliminates the need for code adaptation to different systems.
+            `
+        ],
+        overlay         : 'Not Avaliable',
+        link            : '',
     },
 ];
 

@@ -203,10 +203,11 @@ export const projectData : dataContainer[] = [
         date            : "Not Started",
         description     : [
             `
-                C++, ...TBD
+                C++, SFML
             `,
             `
-                Sheet music construction and play back.
+                Tool to build sheet music and 
+                listen to play back.
             `
         ],
         overlay         : 'Not Avaliable',

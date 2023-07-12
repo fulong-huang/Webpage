@@ -177,18 +177,36 @@ export const projectData : dataContainer[] = [
         img             : '/Current.png',
         title           : 
             `
-                Party Chess on Browser
+                Chaotic Chess
+            `,
+        date            : "Jul 11 - present",
+        description     : [
+            `
+                JavaScript, React
+            `,
+            `
+                Rebuilt Chess game for browser
+                to allow ease of access.
+                [Pair programming with friend]
+            `
+        ],
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/chaotic_chess',
+    },
+    {
+        bgColor         : 'rgb(200, 100, 200)',
+        img             : '/SoundSheet.png',
+        title           : 
+            `
+                Sound Sheet
             `,
         date            : "Not Started",
         description     : [
             `
+                C++, ...TBD
             `,
             `
-                Gathering information to build Chess with Friends, 
-                it will ran in browser rather than
-                asking users to download the game,
-                which makes it more accessible and 
-                eliminates the need for code adaptation to different systems.
+                Sheet music construction and play back.
             `
         ],
         overlay         : 'Not Avaliable',

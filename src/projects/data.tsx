@@ -174,7 +174,7 @@ export const projectData : dataContainer[] = [
     },
     {
         bgColor         : 'rgb(250 180 80)',
-        img             : '/Current.png',
+        img             : '/ChaoticChess.png',
         title           : 
             `
                 Chaotic Chess
@@ -194,18 +194,39 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/chaotic_chess',
     },
     {
+        bgColor         : 'rgb(200 100 100)',
+        img             : 'Soundcorset.png',
+        title           : 
+            `
+                Metronome
+            `,
+        date            : "Preparing",
+        description     : [
+            `
+                C++, SFML
+            `,
+            `
+                Metronome, which also allow user to adjust pitch of beats
+                besides tempo and volumn.
+            `
+        ],
+        overlay         : 'Not Avaliable',
+        link            : '',
+    },
+    {
         bgColor         : 'rgb(200, 100, 200)',
         img             : '/SoundSheet.png',
         title           : 
             `
                 Sound Sheet
             `,
-        date            : "Not Started",
+        date            : "Postponed",
         description     : [
             `
                 C++, SFML
             `,
             `
+                Start after completion of metronome. 
                 Tool to build sheet music and 
                 listen to play back.
             `

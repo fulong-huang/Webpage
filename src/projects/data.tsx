@@ -179,7 +179,7 @@ export const projectData : dataContainer[] = [
             `
                 Chaotic Chess
             `,
-        date            : "Jul 11 - present",
+        date            : "Jul 11 - Present",
         description     : [
             `
                 JavaScript, React
@@ -200,7 +200,7 @@ export const projectData : dataContainer[] = [
             `
                 Metronome
             `,
-        date            : "Preparing",
+        date            : "Jul 14 - Present",
         description     : [
             `
                 C++, SFML
@@ -208,10 +208,11 @@ export const projectData : dataContainer[] = [
             `
                 Metronome, which also allow user to adjust pitch of beats
                 besides tempo and volumn.
+                Possibly adding drone alone side with metronome.
             `
         ],
-        overlay         : 'Not Avaliable',
-        link            : '',
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/metronome',
     },
     {
         bgColor         : 'rgb(200, 100, 200)',
@@ -220,7 +221,7 @@ export const projectData : dataContainer[] = [
             `
                 Sound Sheet
             `,
-        date            : "Postponed",
+        date            : "After Metronome",
         description     : [
             `
                 C++, SFML

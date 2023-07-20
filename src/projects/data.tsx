@@ -182,12 +182,13 @@ export const projectData : dataContainer[] = [
         date            : "Jul 11 - Present",
         description     : [
             `
-                JavaScript, React
+                NodeJS, React, REST API,
             `,
             `
                 Rebuilt Chess game for browser
                 to allow ease of access.
-                [Pair programming with friend]
+                [programming with a friend
+                under the supervision of an experienced engineer]
             `
         ],
         overlay         : 'Visit Github Page',
@@ -215,7 +216,8 @@ export const projectData : dataContainer[] = [
         link            : 'https://github.com/fulong-huang/metronome',
     },
     {
-        bgColor         : 'rgb(200, 100, 200)',
+        //bgColor         : 'rgb(200, 100, 200)',
+        bgColor         : 'grey',
         img             : '/SoundSheet.png',
         title           : 
             `

@@ -172,28 +172,28 @@ export const projectData : dataContainer[] = [
         overlay         : 'Visit Github Page',
         link            : 'https://github.com/fulong-huang/Chess_Online',
     },
-    {
-        bgColor         : 'rgb(250 180 80)',
-        img             : '/ChaoticChess.png',
-        title           : 
-            `
-                Chaotic Chess
-            `,
-        date            : "Jul 11 - Present",
-        description     : [
-            `
-                NodeJS, React, REST API,
-            `,
-            `
-                Rebuilt Chess game for browser
-                to allow ease of access.
-                [programming with a friend
-                under the supervision of an experienced engineer]
-            `
-        ],
-        overlay         : 'Visit Github Page',
-        link            : 'https://github.com/fulong-huang/chaotic_chess',
-    },
+//    {
+//        bgColor         : 'rgb(250 180 80)',
+//        img             : '/ChaoticChess.png',
+//        title           : 
+//            `
+//                Chaotic Chess
+//            `,
+//        date            : "Jul 11 - Present",
+//        description     : [
+//            `
+//                NodeJS, React, REST API,
+//            `,
+//            `
+//                Rebuilt Chess game for browser
+//                to allow ease of access.
+//                [programming with a friend
+//                under the supervision of an experienced engineer]
+//            `
+//        ],
+//        overlay         : 'Visit Github Page',
+//        link            : 'https://github.com/fulong-huang/chaotic_chess',
+//    },
     {
         bgColor         : 'rgb(200 100 100)',
         img             : 'Soundcorset.png',
@@ -201,7 +201,7 @@ export const projectData : dataContainer[] = [
             `
                 Metronome
             `,
-        date            : "Jul 14 - Present",
+        date            : "Not Started",
         description     : [
             `
                 C++, SFML
@@ -215,28 +215,28 @@ export const projectData : dataContainer[] = [
         overlay         : 'Visit Github Page',
         link            : 'https://github.com/fulong-huang/metronome',
     },
-    {
-        //bgColor         : 'rgb(200, 100, 200)',
-        bgColor         : 'grey',
-        img             : '/SoundSheet.png',
-        title           : 
-            `
-                Sound Sheet
-            `,
-        date            : "After Metronome",
-        description     : [
-            `
-                C++, SFML
-            `,
-            `
-                Start after completion of metronome. 
-                Tool to build sheet music and 
-                listen to play back.
-            `
-        ],
-        overlay         : 'Not Avaliable',
-        link            : '',
-    },
+//    {
+//        //bgColor         : 'rgb(200, 100, 200)',
+//        bgColor         : 'grey',
+//        img             : '/SoundSheet.png',
+//        title           : 
+//            `
+//                Sound Sheet
+//            `,
+//        date            : "After Metronome",
+//        description     : [
+//            `
+//                C++, SFML
+//            `,
+//            `
+//                Start after completion of metronome. 
+//                Tool to build sheet music and 
+//                listen to play back.
+//            `
+//        ],
+//        overlay         : 'Not Avaliable',
+//        link            : '',
+//    },
 ];
 
 

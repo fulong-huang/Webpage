@@ -15,26 +15,26 @@ const item4List: string[] = [
 
 const body: string[] = [
     `
-    As a graduated student majoring in Computer Science,
-    I am passionate about programming and eager to learn new technologies.
-    Throughout my journey,
-    I have developed numerous projects to help me better understand 
-    new technologies since I believe building projects with 
-    minimum support is the most effective way to learn.
-    I enjoy the process of solving complex problems 
-    that arise along the way,
-    as it allows me to discover areas 
-    where I need further knowledge and expertise.
-    `,
+ 	As a graduated student majoring in Computer Science, 
+	I am passionate about programming and eager to learn new technologies. 
+	Throughout my journey, 
+	I have developed numerous projects to help me better understand new technologies 
+	since I believe building projects with minimum support is the most effective way to learn 
+	and explore the field. 
+	I enjoy the process of solving complex problems that arise along the way,
+	as it allows me to discover areas where I need further knowledge and expertise.    `,
 
     `
-    I am also really interested in music. 
-    I started learning viola from an after-school program during middle school, 
-    and I have been playing since then. 
-    I have joined and played in many different orchestras, 
-    including the UCI symphony orchestra as a non-music major student.
-    I also gained an opportunity to play at Walt Disney Concert Hall 
-    as a member of HOLA students, which is an unforgettable experience.
+    In addition to my technical pursuits,
+	I have a deep interest in music.
+	I began learning the Viola in middle school and have continued to play ever since.
+	I joined numerous programs aiming to practice and strengthen my craft and
+	met lots of interesting and talented folks along the way. 
+	I made lots of unforgettable memories during my journey,
+	such as being on stage with Placido Domingo, 
+	performing at Walt Disney Concert Hall, 
+	and camping with talented musicians amidst the mountain depth.
+
     `,
 ]
 

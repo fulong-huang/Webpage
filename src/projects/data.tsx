@@ -11,6 +11,26 @@ export type dataContainer = {
 }
 
 export const projectData : dataContainer[] = [
+    {
+        bgColor         : 'rgb(200 100 100)',
+        img             : 'Soundcorset.png',
+        title           : 
+            `
+                Metronome
+            `,
+        date            : "In Progress",
+        description     : [
+            `
+                C++, SFML
+            `,
+            `
+                Metronome, which also allow user to adjust pitch of beats
+                besides tempo and volumn for it to function as a drone.
+            `
+        ],
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/metronome',
+    },
     { // Website
         bgColor         : 'rgb(80, 150, 230)',
         img             : '/webpage.png',
@@ -194,27 +214,6 @@ export const projectData : dataContainer[] = [
 //        overlay         : 'Visit Github Page',
 //        link            : 'https://github.com/fulong-huang/chaotic_chess',
 //    },
-    {
-        bgColor         : 'rgb(200 100 100)',
-        img             : 'Soundcorset.png',
-        title           : 
-            `
-                Metronome
-            `,
-        date            : "Not Started",
-        description     : [
-            `
-                C++, SFML
-            `,
-            `
-                Metronome, which also allow user to adjust pitch of beats
-                besides tempo and volumn.
-                Possibly adding drone alone side with metronome.
-            `
-        ],
-        overlay         : 'Visit Github Page',
-        link            : 'https://github.com/fulong-huang/metronome',
-    },
 //    {
 //        //bgColor         : 'rgb(200, 100, 200)',
 //        bgColor         : 'grey',

@@ -12,13 +12,33 @@ export type dataContainer = {
 
 export const projectData : dataContainer[] = [
     {
+        bgColor         : 'rgb(230 100 80)',
+        img             : 'https://placehold.co/800?text=Constructing&font=roboto',
+        title           : 
+            `
+                Harmonic Trainer
+            `,
+        date            : "In Progress",
+        description     : [
+            `
+                C++, SFML
+            `,
+            `
+                An ear training application to help users learn to 
+								identify different harmonic intervals by ear.
+            `
+        ],
+        overlay         : 'Visit Github Page',
+        link            : 'https://github.com/fulong-huang/metronome',
+    },
+    {
         bgColor         : 'rgb(200 100 100)',
         img             : 'Soundcorset.png',
         title           : 
             `
                 Metronome
             `,
-        date            : "In Progress",
+        date            : "July 14 - Apr 4",
         description     : [
             `
                 C++, SFML

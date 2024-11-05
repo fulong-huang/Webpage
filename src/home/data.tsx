@@ -1,16 +1,16 @@
 // import React from 'react';
 
 const item1List: string[] = [
-    'C', 'C#', 'C++', 'Python', 'Java', 'MySQL', 'Assembly',
+    'C', 'C#', 'C++', 'Python', 'Java', 'JavaScript', 'Assembly',
 ]
 const item2List: string[] = [
-    'JavaScript', 'TypeScript', 'React', 'CSS', 'HTML',
+    'TypeScript', 'React', 'CSS', 'HTML', 'Django',
 ]
 const item3List: string[] = [
-    'Git', 'Github', 'Unity', 'Machine Learning'
+    'Git', 'Github', 'Unity', 'Machine Learning', 'MySQL', 
 ]
 const item4List: string[] = [
-    'Prolog', 'Lisp', 
+    // 'Prolog', 'Lisp', 
 ]
 
 const body: string[] = [
@@ -28,13 +28,14 @@ const body: string[] = [
     In addition to my technical pursuits,
 	I have a deep interest in music.
 	I began learning the Viola in middle school and have continued to play ever since.
-	I joined numerous programs aiming to practice and strengthen my craft and
+	I joined numerous orchestras and programs aiming to practice and strengthen my craft, 
+	which also gave me opportunities to
 	met lots of interesting and talented folks along the way. 
 	I made lots of unforgettable memories during my journey,
 	such as being on stage with Placido Domingo, 
 	performing at Walt Disney Concert Hall, 
 	and camping with talented musicians amidst the mountain depth.
-
+	Currently I am a member of Eisner Intergenerational Orchestra. 
     `,
 ]
 

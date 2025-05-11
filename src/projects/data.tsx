@@ -29,7 +29,7 @@ export const projectData : dataContainer[] = [
             `
         ],
         overlay         : 'Visit Github Page',
-        link            : 'https://github.com/fulong-huang/metronome',
+        link            : 'https://github.com/fulong-huang/HarmonyTrainer',
     },
     {
         bgColor         : 'rgb(200 100 100)',

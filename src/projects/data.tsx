@@ -13,7 +13,7 @@ export type dataContainer = {
 export const projectData: dataContainer[] = [
   { // Construction
     bgColor: 'rgb(250 100 130)',
-    img: '',
+    img: 'Draw.png',
     title: `
             Drawing App
         `,

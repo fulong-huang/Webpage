@@ -9,6 +9,7 @@ import Projects from './projects/project.tsx'
 import Contact from './contact/contact.tsx'
 import Misc from './misc/misc.tsx'
 import Process from './projects/process/processNresource.tsx'
+import Draw from './projects/draw/draw.tsx'
 import { Analytics } from '@vercel/analytics/react'
 
 function App(): JSX.Element {
@@ -21,10 +22,11 @@ function App(): JSX.Element {
         <Route path='/projects'>
           <Route index element={<Projects />} />
           <Route path='process' element={<Process />} />
+          <Route path='draw' element={<Draw />} />
         </Route>
         <Route path='/contact' element={<Contact />} />
         <Route path='/misc' element={<Misc />} />
-        <Route path='*' element= {<Navigate to='/projects' />} />
+        <Route path='*' element={<Navigate to='/projects' />} />
       </Routes>
       <Analytics />
     </>

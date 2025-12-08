@@ -3,7 +3,7 @@ import './draw.css'
 import Manager, { MANAGER } from './features/manager.tsx'
 import Canvas, { CANVAS } from './features/display/canvas/canvas.tsx'
 
-function App() {
+function Draw() {
   useEffect(() => {
     CANVAS.init();
     MANAGER.setCanvas(CANVAS);
@@ -21,10 +21,12 @@ function App() {
   }, [])
   return (
     <>
-      <Manager />
-      {<Canvas />}
+      <div className='draw'>
+        <Manager />
+        {<Canvas />}
+      </div>
     </>
   )
 }
 
-export default App
+export default Draw

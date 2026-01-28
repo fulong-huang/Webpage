@@ -7,26 +7,26 @@ import Sketch from "../shape/Sketch.tsx";
 import { addHistory, redoHistory, undoHistory, EditHistoryCreateShape, EditHistoryMoveShape, EditHistoryRemoveShape } from "./editHistory.tsx";
 let selectedElementPosition: [number, number] = [0, 0];
 
-const canvasScaleAmount: number = 1.1;
-let canvasCurrScale: number = 1;
+const canvasScaleAmount = 1.1;
+let canvasCurrScale = 1;
 let canvasShiftedAmount: [number, number] = [0, 0];
 
 let CANVAS!: HTMLCanvasElement;
 // = document.getElementById("canvas")! as HTMLCanvasElement;
 let canvasCtx!: CanvasRenderingContext2D;
 // = canvasCanvas.getContext('2d')!;
-let canvasWidth: number = 0;
-let canvasHeight: number = 0;
+let canvasWidth = 0;
+let canvasHeight = 0;
 
-let strokeColor: string = "white";
-let strokeWidth: number = 5;
+let strokeColor = "white";
+let strokeWidth = 5;
 
 export const canvasElements: Array<Shape> = [];
-let canvasIsMouseDown: boolean = false;
-let canvasMouseMoved: boolean = false;
+let canvasIsMouseDown = false;
+let canvasMouseMoved = false;
 let canvasCurrShape: Sketch | Line | Rectangle | Circle | null;
-let canvasSelectedShapeIdx: number = -1;
-let canvasIsMovingShape: boolean = false;
+let canvasSelectedShapeIdx = -1;
+let canvasIsMovingShape = false;
 let canvasMovementOffset: [number, number] = [0, 0];
 let canvasSelectedShape:
   | typeof Sketch
@@ -79,6 +79,7 @@ function canvasHandleKeydown(event: KeyboardEvent) {
         const newHistory = new EditHistoryRemoveShape(canvasElements[canvasSelectedShapeIdx]);
         newHistory.perform();
         addHistory(newHistory);
+        canvasUpdateCanvas();
         //         canvasElements.splice(canvasSelectedShapeIdx, 1);
         //         canvasSelectedShapeIdx = -1;
         //         canvasUpdateCanvas();

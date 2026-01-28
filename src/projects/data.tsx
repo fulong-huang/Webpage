@@ -17,7 +17,7 @@ export const projectData: dataContainer[] = [
     title: `
             Drawing App
         `,
-    date: "In Progress",
+    date: "",
     description: [
       `
         TypeScript, React
@@ -58,7 +58,7 @@ export const projectData: dataContainer[] = [
       `
                 Metronome
             `,
-    date: "July 14 - Apr 4",
+    date: "",
     description: [
       `
                 C++, SFML
@@ -77,7 +77,7 @@ export const projectData: dataContainer[] = [
     title: `
             Personal Website 
         `,
-    date: "Apr 26 - May 2",
+    date: "",
     description: [
       `
                 TypeScript, React, HTML, CSS
@@ -116,7 +116,7 @@ export const projectData: dataContainer[] = [
     title: `
             Tetris
         `,
-    date: "Apr 10 - Apr 12",
+    date: "",
     description: [
       `
                 JavaScript, HTML, CSS
@@ -176,7 +176,7 @@ export const projectData: dataContainer[] = [
     title: `
             Scheduler (Web version)
         `,
-    date: "May 7 - Jun 9",
+    date: "",
     description: [
       `
                 TypeScript, React
@@ -197,7 +197,7 @@ export const projectData: dataContainer[] = [
     title: `
             Chess
         `,
-    date: "Jun 10 - Jun 18",
+    date: "",
     description: [
       `
                 C++, CMake, TDD
@@ -217,7 +217,7 @@ export const projectData: dataContainer[] = [
       `
                 Chess with Friends
             `,
-    date: "Jun 21 - July 5",
+    date: "",
     description: [
       `
                 C++, CMake, Multi-thread, Socket

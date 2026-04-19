@@ -35,7 +35,6 @@ const body: string[] = [
 	such as being on stage with Placido Domingo, 
 	performing at Walt Disney Concert Hall, 
 	and camping with talented musicians amidst the mountain depth.
-	Currently I am a member of Eisner Intergenerational Orchestra. 
     `,
 ]
 
